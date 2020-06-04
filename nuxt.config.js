@@ -12,7 +12,21 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // {
+      //   rel: "stylesheet",
+      //   href: "https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+      // },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "stylesheet", href: "/css/animate.css" },
+      { rel: "stylesheet", href: "/css/woocommerce.css" },
+      { rel: "stylesheet", href: "/css/prettyPhoto.css" },
+      { rel: "stylesheet", href: "/css/superfish.css" },
+      { rel: "stylesheet", href: "/css/font-awesome.css" },
+      { rel: "stylesheet", href: "/css/themify-icons.css" },
+      { rel: "stylesheet", href: "/css/slider-pro.min.css" },
+      { rel: "stylesheet", href: "/css/megafish.css" },
+      { rel: "stylesheet", href: "/css/themify-icons.css" },
+      { rel: "stylesheet", href: "/css/style.css" },
     ]
   },
   /*
