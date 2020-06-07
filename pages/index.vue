@@ -135,672 +135,7 @@
                   </header>
 
                   <div class="masonry-container row">
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="1">
-                      <article class="entry-item ct-item-1 style-01">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/1.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <div class="add-to-wishlist">
-                                  <div>
-                                    <a href="#" class="add_to_wishlist">
-                                      <i class="ti-heart"></i>
-                                    </a>
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="blank">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                      <div class="badge-icon-1 style-01">
-                        New
-                        <span></span>
-                      </div>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="2">
-                      <article class="entry-item ct-item-1 style-02">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/2.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="4">
-                      <article class="entry-item ct-item-1 style-04">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/3.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                      <div class="badge-icon-1 style-02">
-                        hot
-                        <span></span>
-                      </div>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="3">
-                      <article class="entry-item ct-item-1 style-03">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/4.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="3">
-                      <article class="entry-item ct-item-1 style-03">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/5.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="2">
-                      <article class="entry-item ct-item-1 style-02">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/6.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                      <div class="badge-icon-1 style-01">
-                        New
-                        <span></span>
-                      </div>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="1">
-                      <article class="entry-item ct-item-1 style-01">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/7.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                      <div class="badge-icon-1 style-03">
-                        sold
-                        <span></span>
-                      </div>
-                    </div>
-                    <!-- masonry-item -->
-
-                    <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="4">
-                      <article class="entry-item ct-item-1 style-04">
-                        <div class="entry-thumb">
-                          <a href="#">
-                            <img src="/images/p2/8.jpg" alt />
-                          </a>
-                          <div class="entry-content">
-                            <header>
-                              <h4 class="entry-title">
-                                <a href="#">این عنوان کتاب است</a>
-                              </h4>
-                              <div class="kopa-rating">
-                                <ul>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li>
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="hactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                  <li class="inactive">
-                                    <span class="fa fa-star"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                            </header>
-                            <p>این یک متن کوتاه در رابطه با توضیحات کتاب است</p>
-                            <p class="ct-space-1"></p>
-                            <div class="ct-icon-1">
-                              <p>
-                                <span>٪</span>۲۴
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <footer>
-                          <div class="ft-wrap style-01">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-user"></i>
-                                  سارا اعتمادیان
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="fa fa-folder-o"></i>
-                                  مجله
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="ft-wrap style-02">
-                            <ul>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-heart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-shopping-cart"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#">
-                                  <i class="ti-new-window"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </footer>
-                      </article>
-                    </div>
-                    <!-- masonry-item -->
+                   <BookItem v-for="item in books" :key="item.id" :book="item"/>
                   </div>
                   <!-- masonry-container -->
 
@@ -893,10 +228,114 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-
+import BookItem from "../components/Books/BookItem";
 export default {
-  
-  components: {}
+  name: "Home",
+  components: {
+    BookItem
+  },
+  data() {
+    return {
+      books: [
+        {
+          id: 1,
+          img: "images/p2/1.jpg",
+          type: "جدید",
+          discount: "20%",
+          title: "دالان بهشت",
+          rate: 2,
+          description:
+            "این یک توضیحاتی درباره کتاب است",
+          auther: "نازی صفوی",
+          category: "رمان",
+          colorClass: "style-01"
+        },
+        {
+          id: 2,
+          img: "images/p2/2.jpg",
+          type: "جدید",
+          discount: "20%",
+          title: " آبنبات هل دار",
+          rate: 5,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: " مهرداد صدقی",
+          category: "طنز",
+          colorClass: "style-02"
+        },
+        {
+          id: 3,
+          img: "images/p2/3.jpg",
+          type: "پرفروش",
+          discount: "$20",
+          title: "قورباغه ات را قورت بده",
+          rate: 2,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: " hossein bajan",
+          category: "مجله",
+          colorClass: "style-04"
+        },
+        {
+          id: 4,
+          img: "images/p2/4.jpg",
+          type: "جدید",
+          discount: "$20",
+          title: "asar morkab",
+          rate: 2,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: " sara etemadian",
+          category: "طنز",
+          colorClass: "style-03"
+        },
+        {
+          id: 5,
+          img: "images/p2/5.jpg",
+          type: "پرفروش",
+          discount: "$20",
+          title: "مردان مریخی زنان ونوسی",
+          rate: 3,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: "  جان گری",
+          category: "مجله",
+          colorClass: "style-02"
+        },
+        {
+          id: 6,
+          img: "images/p2/6.jpg",
+          type: "جدید",
+          discount: "$20",
+          title: "برنامه نویسی",
+          rate: 4,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: "عادل باژن",
+          category: "طنز",
+          colorClass: "style-03"
+        },
+        {
+          id: 7,
+          img: "images/p2/7.jpg",
+          type: "پرفروش",
+          discount: "$20",
+          title: "مکاترونیک",
+          rate: 5,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: " عادل باژن",
+          category: "کتاب",
+          colorClass: "style-01"
+        },
+        {
+          id: 8,
+          img: "images/p2/8.jpg",
+          type: "جدید",
+          discount: "$20",
+          title: "کیف انگلیسی",
+          rate: 3,
+          description:"این یک توضیحاتی درباره کتاب است",
+          auther: " جان دئو",
+          category: "کتاب",
+          colorClass: "style-04"
+        }
+      ]
+    };
+  }
 };
 </script>
