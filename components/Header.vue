@@ -3,9 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 col-sm-6 col-xs-6 text-left">
-            <div class="hamburger-menu">
-              <span class="ti-menu"></span>
-            </div>
+            
 
             <!-- hamburger-menu -->
 
