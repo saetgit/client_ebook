@@ -60,7 +60,7 @@
               </div>
             </li>
             <li>
-              <a href="#">
+              <a href="/books/books-detail">
                 <i class="ti-shopping-cart"></i>
               </a>
             </li>

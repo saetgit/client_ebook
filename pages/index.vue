@@ -131,7 +131,7 @@
                       </a>
                     </div>
                     <!-- masonry-filter -->
-                    <a href="#" class="kopa-btn-5">نمایش همه</a>
+                    <a href="books/" class="kopa-btn-5">نمایش همه</a>
                   </header>
 
                   <div class="masonry-container row">
@@ -140,7 +140,7 @@
                   <!-- masonry-container -->
 
                   <div class="text-center">
-                    <a class="kopa-btn-6" href="#">نمایش همه</a>
+                    <a class="kopa-btn-6" href="books/">نمایش همه</a>
                   </div>
                 </div>
               </div>
