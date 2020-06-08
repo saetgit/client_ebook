@@ -21,17 +21,6 @@
               <ul class="main-menu sf-menu">
                 <li class="current-menu-item">
                   <a href="index-1.html">صفحه اصلی</a>
-                  <ul>
-                    <li>
-                      <a href="index-1.html">Home Style 1</a>
-                    </li>
-                    <li>
-                      <a href="index-2.html">Home Style 2</a>
-                    </li>
-                    <li>
-                      <a href="index-3.html">Home Style 3</a>
-                    </li>
-                  </ul>
                 </li>
                 <li>
                   <a href="header-1.html">استایل هدر</a>
@@ -54,7 +43,7 @@
                   <a href="shop-detail-1.html">فروشگاه</a>
                   <ul>
                     <li>
-                      <a href="shop-cat-1.html">categories</a>
+                      <a href="shop-cat-1.html">دسته بندی</a>
                       <ul>
                         <li>
                           <a href="shop-cat-1.html">categories left sidebar</a>
@@ -71,7 +60,7 @@
                       <a href="cart.html">سبد خرید</a>
                     </li>
                     <li>
-                      <a href="check-out.html">check out</a>
+                      <a href="check-out.html">پیش فاکتور</a>
                     </li>
                     <li>
                       <a href="shop-detail-1.html">single</a>

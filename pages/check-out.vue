@@ -11,18 +11,18 @@
 
                     <div class="kopa-breadcrumb">
 
-                        <h3>check out</h3>
+                        <h3>پیش فاکتور</h3>
 
                         <div class="breadcrumb-content">
                             <span itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
-                                <a itemprop="url" href="#">
-                                    <span itemprop="title">Home</span>
+                                <a itemprop="url" href="/">
+                                    <span itemprop="title">خانه</span>
                                 </a>
                             </span>
                             <span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
                             <span itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
                                 <a itemprop="url" class="current-page">
-                                    <span itemprop="title">check out</span>
+                                    <span itemprop="title">پیش فاکتور</span>
                                 </a>
                             </span>
                         </div>

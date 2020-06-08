@@ -73,14 +73,7 @@
         </div>
       </footer>
     </article>
-    <div class="badge-icon-1 style-02" v-if="book.type === 'پرفروش'">
-      پرفروش
-      <span></span>
-    </div>
-    <div class="badge-icon-1 style-01" v-else-if="book.type === 'جدید'">
-      جدید
-      <span></span>
-    </div>
+    
 
   </div>
   <!-- masonry-item -->
