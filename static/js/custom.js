@@ -871,3 +871,4 @@ jQuery(document).ready(function() {
 
 
 });
+// =========================register and login ===================
