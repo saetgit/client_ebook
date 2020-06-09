@@ -96,6 +96,7 @@
                             placeholder="کد تخفیف خود را وارد کنید."
                             style="float:right"
                           />
+                          <nuxt-link to="/cart">
                           <input
                             type="submit"
                             class="button"
@@ -103,6 +104,7 @@
                             value="ثبت کد"
                             style="float:left;background-color:#ff4057;margin-right:10px;color:#fff"
                           />
+                          </nuxt-link>
                         </div>
                       </td>
                     </tr>

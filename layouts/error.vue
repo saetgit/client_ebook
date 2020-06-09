@@ -6,13 +6,13 @@
           <div class="col-md-10 col-md-push-1">
             <div class="widget ct-module-404">
               <div class="widget-content text-center">
-                <img src="images/one/1.png" alt />
+                <img src="/images/one/1.png" alt />
                 <h4>اوه ، این صفحه یافت نشد :(</h4>
-
-                <a href="#" class="kopa-btn-14">
+                
+                <nuxt-link to="/" class="kopa-btn-14">
                   <i class="fa fa-long-arrow-left"></i>
                   بازگشت به صفحه اصلی
-                </a>
+                </nuxt-link>
               </div>
             </div>
             <!-- widget -->

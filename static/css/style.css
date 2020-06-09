@@ -14003,7 +14003,24 @@ a {
   color: #b3b3b3
 }
 .login-reg{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 50%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  
+
+}
+.log-regi{
+  margin-left: -120px;
+}
+.icon-dan{
+  margin-left: -90% !important;
+}
+/* ============ bookitem ============== */
+.title-book{
+  color: #000;
+}
+.fa fa-user{
+  color: #000;
+}
+.auther-book{
+  color: #000;
 }

@@ -50,16 +50,16 @@
               <div class="kopa-social-links style-02">
                 <ul class="clearfix">
                   <li>
-                    <a href="#" class="fa fa-facebook"></a>
+                    <nuxt-link to="/" class="fa fa-facebook"></nuxt-link>
                   </li>
                   <li>
-                    <a href="#" class="fa fa-twitter"></a>
+                    <nuxt-link to="/" class="fa fa-twitter"></nuxt-link>
                   </li>
                   <li>
-                    <a href="#" class="fa fa-instagram"></a>
+                    <nuxt-link to="/" class="fa fa-instagram"></nuxt-link>
                   </li>
                   <li>
-                    <a href="#" class="fa fa-rss"></a>
+                    <nuxt-link to="/" class="fa fa-rss"></nuxt-link>
                   </li>
                 </ul>
               </div>
@@ -78,15 +78,15 @@
         <div class="kopa-pull-left">
           <p class="copyright">
             طراحی و توسعه توسط تیم
-            <a href="#">اچ‌بی‌سافت</a> - همه قوانین محفوط می‌باشد.
+            <nuxt-link to="/">سئوکد</nuxt-link> - همه قوانین محفوط می‌باشد.
           </p>
         </div>
       </div>
       <!-- container -->
     </footer>
 
-    <a href="#" class="scroll-up">
+    <nuxt-link to="/" class="scroll-up">
       <span class="ti-arrow-up"></span>
-    </a>
+    </nuxt-link>
   </div>
 </template>

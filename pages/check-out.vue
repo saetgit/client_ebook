@@ -151,7 +151,9 @@
                                                 <li>متأسفیم ، به نظر می رسد هیچ روش پرداخت در دسترس برای ایالت شما وجود ندارد. لطفا در صورت نیاز به کمک یا مایل به ایجاد ترتیب های متفاوتی با ما تماس بگیرید.</li>
                                             </ul> -->
                                             <div class="form-row place-order">
-                                                <input type="submit" class="button alt"  id="place_order" value="سفارش">   
+                                                <nuxt-link to="/">
+                                                <input type="submit" class="button alt"  id="place_order" value="سفارش">  
+                                                </nuxt-link> 
                                             </div>
                                         </div>
                                     </div>

@@ -1,6 +1,7 @@
 <template>
-  <div class="row login-reg">
-    <div class="col-md-6 mx-auto p-0">
+  <div class="row login-reg" >
+    <div class="col-md-4 mx-auto p-0"></div>
+    <div class="col-md-4 p-0 log-regi">
       <div class="card">
         <div class="login-box">
           <div class="login-snip">
@@ -11,11 +12,9 @@
             <div class="login-space">
               <div class="login">
                 <div class="group">
-                  <label for="user" class="label">نام کاربری</label>
                   <input id="user" type="text" class="input" placeholder="نام کاربری خود را وارد کنید" />
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">رمزعبور</label>
                   <input
                     id="pass"
                     type="password"
@@ -31,7 +30,9 @@
                   </label>
                 </div>
                 <div class="group">
+                  <nuxt-link to="">
                   <input type="submit" class="button" value="ورود" />
+                  </nuxt-link>
                 </div>
                 <div class="hr"></div>
                 <div class="foot">
@@ -40,11 +41,9 @@
               </div>
               <div class="sign-up-form">
                 <div class="group">
-                  <label for="user" class="label">نام کاربری</label>
                   <input id="user" type="text" class="input" placeholder="نام کاربری خود را واردکنید" />
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">رمزعبور</label>
                   <input
                     id="pass"
                     type="password"
@@ -54,7 +53,6 @@
                   />
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">تکرار رمزعبور</label>
                   <input
                     id="pass"
                     type="password"
@@ -64,22 +62,21 @@
                   />
                 </div>
                 <div class="group">
-                  <label for="pass" class="label">ایمیل</label>
                   <input id="pass" type="text" class="input" placeholder="ایمیل خود را وارد کنید." />
                 </div>
                 <div class="group">
+                  <nuxt-link to="">
                   <input type="submit" class="button" value="ثبت نام" />
+                  </nuxt-link>
                 </div>
-                <div class="hr"></div>
-                <div class="foot">
-                  <label for="tab-1">Already Member?</label>
-                </div>
+                
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-md-4 mx-auto p-0"></div>
   </div>
 </template>
 <script>

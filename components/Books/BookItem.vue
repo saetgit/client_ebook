@@ -2,13 +2,14 @@
   <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="1">
     <article :class="'entry-item ct-item-1 ' + book.colorClass">
       <div class="entry-thumb">
-        <a href="#">
+        <nuxt-link to="/books/detail">
           <img :src="book.img" alt />
-        </a>
+        </nuxt-link>
         <div class="entry-content">
           <header>
             <h4 class="entry-title">
-              <a href="#">{{book.title}}</a>
+              <nuxt-link to="/books/detail" class="title-book">
+              {{book.title}}</nuxt-link>
             </h4>
             <div class="kopa-rating">
               <ul>
@@ -35,16 +36,16 @@
         <div class="ft-wrap style-01">
           <ul>
             <li>
-              <a href="#">
+              <nuxt-link to="/" class="auther-book">
                 <i class="fa fa-user"></i>
                  {{book.auther}}
-              </a>
+              </nuxt-link>
             </li>
             <li>
-              <a href="#">
+              <nuxt-link to="/" >
                 <i class="fa fa-folder-o"></i>
                 {{book.category}}
-              </a>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -53,9 +54,9 @@
             <li>
               <div class="add-to-wishlist">
                 <div>
-                  <a href="#" class="add_to_wishlist">
+                  <nuxt-link to="/" class="add_to_wishlist">
                     <i class="ti-heart"></i>
-                  </a>
+                  </nuxt-link>
                 </div>
               </div>
             </li>
@@ -67,9 +68,9 @@
               
             </li>
             <li>
-              <a href="#" target="blank">
+              <nuxt-link to="/"  target="blank">
                 <i class="ti-new-window"></i>
-              </a>
+              </nuxt-link>
             </li>
           </ul>
         </div>

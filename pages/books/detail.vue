@@ -44,38 +44,38 @@
                   <div class="woocommerce-area-1">
                     <div class="images">
                       <a
-                        href="../../static/images/p26/1.jpg"
+                        href="/images/p26/1.jpg"
                         itemprop="image"
                         class="woocommerce-main-image zoom"
                         title
                         data-rel="prettyPhoto[product-gallery]"
                       >
-                        <img src="../../static/images/p26/1.jpg" alt />
+                        <img src="/images/p26/1.jpg" alt />
                       </a>
                       <div class="thumbnails columns-3">
                         <a
-                          href="../../static/images/p26/2.jpg"
+                          href="/images/p26/2.jpg"
                           class="zoom first"
                           title
                           data-rel="prettyPhoto[product-gallery]"
                         >
-                          <img src="../../static/images/p26/2.jpg" alt />
+                          <img src="/images/p26/2.jpg" alt />
                         </a>
                         <a
-                          href="../../static/images/p26/1.jpg"
+                          href="/images/p26/1.jpg"
                           class="zoom"
                           title
                           data-rel="prettyPhoto[product-gallery]"
                         >
-                          <img src="../../static/images/p26/1.jpg" alt />
+                          <img src="/images/p26/1.jpg" alt />
                         </a>
                         <a
-                          href="../../static/images/p26/3.jpg"
+                          href="/images/p26/3.jpg"
                           class="zoom"
                           title
                           data-rel="prettyPhoto[product-gallery]"
                         >
-                          <img src="../../static/images/p26/3.jpg" alt />
+                          <img src="/images/p26/3.jpg" alt />
                         </a>
                       </div>
                     </div>

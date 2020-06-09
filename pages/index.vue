@@ -34,7 +34,7 @@
                       <div class="search-box-1">
                         <form action="#" class="search-form-1" method="get">
                           <input type="text" value="عنوان، نویسنده، ناشر و ..." name="s" class="search-text" />
-                          <button type="submit" class="search-submit kopa-btn-4">جستجو</button>
+                          <nuxt-link to="/books"><button type="submit" class="search-submit kopa-btn-4">جستجو</button></nuxt-link>
                         </form>
                       </div>
                       <!--search-box-->
@@ -97,21 +97,21 @@
                 <div class="widget-content">
                   <header class="masonry-header">
                     <div class="masonry-filter style-01">
-                      <a href="#" data-val="*" class="style-01 active">
+                      <nuxt-link to="books/" data-val="*" class="style-01 active">
                         <span></span>همه
-                      </a>
-                      <a href="#" data-val="1" class="style-02">
+                      </nuxt-link>
+                      <nuxt-link to="books/" data-val="1" class="style-02">
                         <span></span>مجله‌ها
-                      </a>
-                      <a href="#" data-val="2" class="style-03">
+                      </nuxt-link>
+                      <nuxt-link to="books/" data-val="2" class="style-03">
                         <span></span>طنز‌ها
-                      </a>
-                      <a href="#" data-val="3" class="style-04">
+                      </nuxt-link>
+                      <nuxt-link to="books/" data-val="3" class="style-04">
                         <span></span>کتاب‌ها
-                      </a>
-                      <a href="#" data-val="4" class="style-05">
+                      </nuxt-link>
+                      <nuxt-link to="books/" data-val="4" class="style-05">
                         <span></span>مقاله‌ها
-                      </a>
+                      </nuxt-link>
                     </div>
                     <!-- masonry-filter -->
                     <nuxt-link to="books/" class="kopa-btn-5">نمایش همه</nuxt-link>
