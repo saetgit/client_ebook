@@ -3238,7 +3238,7 @@ div[class*="module-slider"] .slider-pro {
   content: "";
   position: absolute;
   top: 3px;
-  right: -15%;
+  right: 15%;
   width: 100%;
   height: 300px;
 }
@@ -3731,7 +3731,7 @@ div[class*="module-slider"] .slider-pro {
 
 .kopa-area-16 {
   padding: 125px 0 150px;
-  background: url("img/background/5.jpg");
+  background: url("../images/background/3.jpg");
   overflow: hidden;
 }
 .kopa-area-16:before {
@@ -11827,7 +11827,7 @@ div[class*="add-to-wishlist"] > div img {
   content: "\e60d";
   color: #fff !important;
   font-size: 18px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 .woocommerce a.added_to_cart,
 .woocommerce-page a.added_to_cart {
@@ -13354,6 +13354,7 @@ div[class*="add-to-wishlist"] > div img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-top: -10px;
 }
 .reading-module-cs .ct-countdown-4,
 .reading-module-cs .newsletter-form,

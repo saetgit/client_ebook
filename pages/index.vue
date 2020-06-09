@@ -114,7 +114,7 @@
                       </a>
                     </div>
                     <!-- masonry-filter -->
-                    <a href="books/" class="kopa-btn-5">نمایش همه</a>
+                    <nuxt-link to="books/" class="kopa-btn-5">نمایش همه</nuxt-link>
                   </header>
 
                   <div class="masonry-container row">
@@ -123,7 +123,7 @@
                   <!-- masonry-container -->
 
                   <div class="text-center">
-                    <a class="kopa-btn-6" href="books/">نمایش همه</a>
+                    <nuxt-link class="kopa-btn-6" to="books/">نمایش همه</nuxt-link>
                   </div>
                 </div>
               </div>

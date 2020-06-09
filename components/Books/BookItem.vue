@@ -60,9 +60,11 @@
               </div>
             </li>
             <li>
-              <a href="/books/books-detail">
+              
+              <nuxt-link to="/books/detail">
                 <i class="ti-shopping-cart"></i>
-              </a>
+              </nuxt-link>
+              
             </li>
             <li>
               <a href="#" target="blank">

@@ -15,9 +15,9 @@
 
                         <div class="breadcrumb-content">
                             <span itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
-                                <a itemprop="url" href="/">
-                                    <span itemprop="title">خانه</span>
-                                </a>
+                               <nuxt-link to="/">
+                    <span itemprop="title">خانه</span>
+                  </nuxt-link>
                             </span>
                             <span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
                             <span itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
