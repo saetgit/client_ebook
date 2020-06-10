@@ -6,9 +6,9 @@
           <!-- hamburger-menu -->
 
           <div class="kopa-logo">
-            <a href="#">
+            <nuxt-link to="/">
               <img src="/images/header/logo.png" alt />
-            </a>
+            </nuxt-link>
           </div>
           <!-- logo -->
         </div>
@@ -75,7 +75,7 @@
           <div class="kopa-cart kopa-dropdown">
             <b-badge pill variant="danger" class="icon-dan">1</b-badge>
             <span class="ti-shopping-cart kopa-dropdown-btn"></span>
-            
+
             <div class="kopa-dropdown-content">
               <div class="cart-product-list">
                 <ul class="clearfix">
@@ -145,39 +145,23 @@
           </div>
           <!-- cart -->
 
-          <div class="short-nav kopa-dropdown">
-            <div class="kopa-btn-1 kopa-dropdown-btn">
-              <span></span>
-            </div>
-            <div class="kopa-dropdown-content">
-              <ul class="clearfix">
-                <li>
-                  <a href="#">
-                    <i class="ti-user"></i>حساب کاربری من
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="ti-heart"></i>Favorite
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="ti-check"></i>Checkout
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="ti-info-alt"></i>fAQs
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="ti-share-alt"></i>Logout
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div class="dashboard">
+            <b-dropdown size="lg" variant="link" toggle-class="text-decoration-none" no-caret>
+              <template v-slot:button-content>
+                <div class="short-nav kopa-dropdown">
+                  <div class="kopa-btn-1 kopa-dropdown-btn">
+                    <span></span>
+                  </div>
+                </div>
+              </template>
+              <div class="sub-dash">
+              <b-dropdown-item>کتاب های من</b-dropdown-item>
+              <b-dropdown-item>سبد خرید</b-dropdown-item>
+              <b-dropdown-item>حساب کاربری من</b-dropdown-item>
+              <b-dropdown-divider></b-dropdown-divider>
+              <b-dropdown-item >خروج از حساب کاربری</b-dropdown-item>
+              </div>
+            </b-dropdown>
           </div>
           <!-- short-nav -->
 

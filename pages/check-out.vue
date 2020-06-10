@@ -80,19 +80,6 @@
                                                 <div class="clear"></div>
 
                                                 <p class="form-row form-row-wide">
-                                                    <label>کشور</label>
-                                                    <select>
-                                                        <option value="">کشور مورد نظر را اانتخاب منید</option>
-                                                        <option value="iran" >ایران </option>
-                                                        <option value="iraq">عراق</option>
-                                                        <option value="india">هند</option>
-                                                        <option value="afq">افغانستان</option>
-                                                        <option value="etc">سایر</option>
-
-                                                        </select>
-                                                </p>
-
-                                                <p class="form-row form-row-wide">
                                                     <label>آدرس</label>
                                                     <input type="text" class="input-text" value="">
                                                 </p>

@@ -14012,7 +14012,10 @@ a {
   margin-left: -120px;
 }
 .icon-dan{
-  margin-left: -90% !important;
+  font-size: 11px;
+  position: absolute;
+  right: 17px;
+  bottom: 0;
 }
 /* ============ bookitem ============== */
 .title-book{
@@ -14023,4 +14026,12 @@ a {
 }
 .auther-book{
   color: #000;
+}
+.dashboard{
+  margin-top: -10px;
+}
+.sub-dash{
+  text-align: right;
+  line-height: 5px;
+  list-style: none;
 }

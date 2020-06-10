@@ -78,7 +78,7 @@
         <div class="kopa-pull-left">
           <p class="copyright">
             طراحی و توسعه توسط تیم
-            <nuxt-link to="/">سئوکد</nuxt-link> - همه قوانین محفوط می‌باشد.
+            <a href="https://profile.ir/etemad">سارا اعتمادیان</a> - همه قوانین محفوط می‌باشد.
           </p>
         </div>
       </div>
