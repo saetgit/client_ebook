@@ -14035,3 +14035,58 @@ a {
   line-height: 5px;
   list-style: none;
 }
+/* =====================Panel user =========== */
+.form-panel{
+  direction: rtl;
+  text-align: right;
+}
+.cart-main{
+  width: 50%;
+}
+.m-sub{
+  width: 100%;
+  left: 0px;
+}
+.btn-sub-m{
+  background-color: #ff4157 !important;
+
+}
+.sub-m-body{
+  cursor: pointer;
+}
+.table-panel{
+  direction: rtl;
+  text-align: right;
+}
+.table-panel header{
+  direction: rtl;
+  text-align: right;
+  background-color: #ff4157;
+}
+.main-panl-right{
+  margin-top:10%
+}
+.btn-panel-save{
+  background-color: #ff4157;
+}
+.glyphicon glyphicon-save{
+  left: 10px;
+}
+.btn-save{
+  background-color:#ff4157 !important;
+  border:#ff4157 !important ;
+}
+.save-icon{
+  left: 5px;
+}
+/* ============ about ============== */
+.img-about{
+  width: 200px;
+}
+.img-about img{
+  width: 70%;
+  height: 200px;
+}
+.para-about{
+  text-align: justify;
+}

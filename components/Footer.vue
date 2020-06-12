@@ -77,8 +77,8 @@
       <div class="container">
         <div class="kopa-pull-left">
           <p class="copyright">
-            طراحی و توسعه توسط تیم
-            <a href="https://profile.ir/etemad">سارا اعتمادیان</a> - همه قوانین محفوط می‌باشد.
+            طراحی و توسعه توسط 
+            <a href="https://profile.ir/etemad" target="_blank">سارا اعتمادیان</a> - همه قوانین محفوط می‌باشد.
           </p>
         </div>
       </div>
