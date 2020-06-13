@@ -1,20 +1,20 @@
 <template>
   <header class="kopa-page-header-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-sm-6 col-xs-6 text-left">
+    <b-container>
+      <b-row>
+        <b-col md="2" sm="6" xs="6" class="text-left">
           <!-- hamburger-menu -->
 
-          <div class="kopa-logo">
+          <b-col class="kopa-logo">
             <nuxt-link to="/">
-              <img src="/images/header/logo.png" alt />
+              <b-img src="/images/header/logo.png" alt > </b-img>
             </nuxt-link>
-          </div>
+          </b-col>
           <!-- logo -->
-        </div>
+        </b-col>
         <!-- col-md-2 -->
 
-        <div class="col-md-8 col-sm-0 col-xs-0">
+        <b-col md="8" sm="0" xs="0" >
           <nav class="main-nav">
             <ul class="main-menu sf-menu">
               <li class="current-menu-item">
@@ -68,10 +68,10 @@
             </ul>
           </nav>
           <!-- main-nav -->
-        </div>
+        </b-col>
         <!-- col-md-8 -->
 
-        <div class="col-md-2 col-sm-6 col-xs-6 text-right">
+        <b-col md="2" sm="6" xs="6"  class="text-right">
           <div class="kopa-cart kopa-dropdown">
             <b-badge pill variant="danger" class="icon-dan">1</b-badge>
             <span class="ti-shopping-cart kopa-dropdown-btn"></span>
@@ -182,11 +182,11 @@
             </form>
           </div>
           <!-- search-box -->
-        </div>
+        </b-col>
         <!-- col-md-2 -->
-      </div>
+      </b-row>
       <!-- row -->
-    </div>
+    </b-container>
   </header>
   <!-- kopa-page-header-1 -->
 </template>

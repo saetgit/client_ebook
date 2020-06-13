@@ -61,6 +61,8 @@
 </template>
 <script>
 export default {
-    
+    head: {
+    title: "درباره ما "
+  },
 }
 </script>

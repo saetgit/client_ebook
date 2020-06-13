@@ -81,6 +81,9 @@
 </template>
 <script>
 export default {
-    layout: "clean"
+    layout: "clean",
+     head: {
+    title: " ثبت نام|ورود "
+  },
 }
 </script>

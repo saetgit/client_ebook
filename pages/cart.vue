@@ -148,3 +148,10 @@
   </div>
   <!-- main-content -->
 </template>
+<script>
+export default {
+    head: {
+    title: " سبد خرید "
+  },
+}
+</script>

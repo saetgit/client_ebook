@@ -1,30 +1,28 @@
 <template>
   <div class="main-container">
-    
-
     <div id="main-content">
       <section class="kopa-area kopa-area-1 kopa-area-parallax white-text-style">
         <div class="kopa-area-tg-1">
           <span></span>
         </div>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="widget reading-module-promo-1">
-                <div class="widget-content">
-                  <div class="promo-text promo-text-1">
+        <b-container>
+          <b-row>
+            <b-col md="12" sm="12" xs="12">
+              <b-col class="widget reading-module-promo-1">
+                <b-col class="widget-content">
+                  <b-col class="promo-text promo-text-1">
                     <h1>فروشگاه کتاب الکترونیکی</h1>
-                  </div>
-                </div>
-              </div>
+                  </b-col>
+                </b-col>
+              </b-col>
               <!-- widget -->
-            </div>
+            </b-col>
             <!-- col-md-12 -->
-          </div>
+          </b-row>
           <!-- row -->
 
-          <div class="row">
+          <b-row>
             <div class="col-md-8 col-sm-12 col-xs-12 m-auto">
               <div class="widget reading-module-search-1">
                 <div class="row">
@@ -33,8 +31,15 @@
                       <h3>اینجا میتونی کتاب مورد نظر را جستجو کنی</h3>
                       <div class="search-box-1">
                         <form action="#" class="search-form-1" method="get">
-                          <input type="text" value="عنوان، نویسنده، ناشر و ..." name="s" class="search-text" />
-                          <nuxt-link to="/books"><button type="submit" class="search-submit kopa-btn-4">جستجو</button></nuxt-link>
+                          <input
+                            type="text"
+                            value="عنوان، نویسنده، ناشر و ..."
+                            name="s"
+                            class="search-text"
+                          />
+                          <nuxt-link to="/books">
+                            <button type="submit" class="search-submit kopa-btn-4">جستجو</button>
+                          </nuxt-link>
                         </form>
                       </div>
                       <!--search-box-->
@@ -47,28 +52,13 @@
               <!-- widget -->
             </div>
             <!-- col-md-12 -->
-          </div>
+          </b-row>
           <!-- row -->
-        </div>
+        </b-container>
       </section>
       <!-- kopa-area-1 -->
 
-      <section class="kopa-area kopa-area-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <!-- widget -->
-            </div>
-            <!-- col-md-12 -->
-          </div>
-          <!-- row -->
-
-          
-         
-        </div>
-        <!-- container -->
-      </section>
-      <!-- kopa-area-2 -->
+      
 
       <section class="kopa-area kopa-area-3">
         <div class="kopa-area-tg-2">
@@ -118,7 +108,7 @@
                   </header>
 
                   <div class="masonry-container row">
-                   <BookItem v-for="item in books" :key="item.id" :book="item"/>
+                    <BookItem v-for="item in books" :key="item.id" :book="item" />
                   </div>
                   <!-- masonry-container -->
 
@@ -137,14 +127,9 @@
       </section>
       <!-- kopa-area-3 -->
 
-      
       <!-- kopa-area-7 -->
     </div>
     <!-- main-content -->
-
-    
-
-    
   </div>
 </template>
 
@@ -152,6 +137,10 @@
 import BookItem from "../components/Books/BookItem";
 export default {
   name: "Home",
+   head: {
+    title: "درباره ما "
+  },
+ 
   components: {
     BookItem
   },
@@ -165,8 +154,7 @@ export default {
           discount: "20%",
           title: "دالان بهشت",
           rate: 2,
-          description:
-            "این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: "نازی صفوی",
           category: "رمان",
           colorClass: "style-01"
@@ -178,7 +166,7 @@ export default {
           discount: "20%",
           title: " آبنبات هل دار",
           rate: 5,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: " مهرداد صدقی",
           category: "طنز",
           colorClass: "style-02"
@@ -190,7 +178,7 @@ export default {
           discount: "%20",
           title: "قورباغه ات را قورت بده",
           rate: 2,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: " hossein bajan",
           category: "مجله",
           colorClass: "style-04"
@@ -202,7 +190,7 @@ export default {
           discount: "%20",
           title: "asar morkab",
           rate: 2,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: " sara etemadian",
           category: "طنز",
           colorClass: "style-03"
@@ -214,7 +202,7 @@ export default {
           discount: "%20",
           title: "مردان مریخی زنان ونوسی",
           rate: 3,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: "  جان گری",
           category: "مجله",
           colorClass: "style-02"
@@ -226,7 +214,7 @@ export default {
           discount: "%20",
           title: "برنامه نویسی",
           rate: 4,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: "عادل باژن",
           category: "طنز",
           colorClass: "style-03"
@@ -238,7 +226,7 @@ export default {
           discount: "%20",
           title: "مکاترونیک",
           rate: 5,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: " عادل باژن",
           category: "کتاب",
           colorClass: "style-01"
@@ -250,7 +238,7 @@ export default {
           discount: "%20",
           title: "کیف انگلیسی",
           rate: 3,
-          description:"این یک توضیحاتی درباره کتاب است",
+          description: "این یک توضیحاتی درباره کتاب است",
           auther: " جان دئو",
           category: "کتاب",
           colorClass: "style-04"

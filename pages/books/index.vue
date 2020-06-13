@@ -85,6 +85,9 @@
 import BookItem from "../../components/Books/BookItem";
 export default {
   name: "Books",
+   head: {
+    title: " نمایش همه  "
+  },
   components: {
     BookItem
   },

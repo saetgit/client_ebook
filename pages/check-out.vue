@@ -160,3 +160,10 @@
         </div>
         <!-- main-content -->
 </template>
+<script>
+export default {
+    head: {
+    title: " پیش فاکتور "
+  },
+}
+</script>

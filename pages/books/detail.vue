@@ -177,3 +177,10 @@
   <!-- Mirrored from dinhvankiem.com/demo/e-reading/html/shop-detail-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Jan 2020 05:13:06 GMT -->
 </html>
 </template>
+<script>
+export default {
+    head: {
+    title: "  جزئیات محصول "
+  },
+}
+</script>

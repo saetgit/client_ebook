@@ -42,6 +42,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: "~plugins/vuelidate" },
+    { src: "~plugins/global-commponents" }
   ],
   /*
   ** Nuxt.js dev-modules

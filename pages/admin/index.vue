@@ -1,73 +1,268 @@
 <template>
-    <form class="form form-panel" action="##" method="post" id="registrationForm">
-                      
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="last_name"><h4>نام خانوادگی</h4></label>
-                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="اعتمادیان" title="enter your last name if any.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="first_name"><h4>نام</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="سارا" title="enter your first name if any.">
-                          </div>
-                      </div>
-          
-                      
-          
-                      
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="email"><h4>ایمیل</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="phone"><h4>شماره همراه</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="09********* " title="enter your phone number if any.">
-                          </div>
-                      </div>
+  <div class="animated fadeIn">
+    <b-col sm="12" md="12">
+      <b-card no-body class="card-default">
+        <div slot="header">
+          <i class="fa fa-user-plus"></i>
+          <span> افزودن کاربر جدید </span>
+        </div>
+        <b-card-body>
+          <b-form @submit.stop.prevent="onSubmit">
+            <b-row>
+              <b-col sm="6">
+                <b-form-group
+                  :label-cols="4"
+                  :horizontal="true"
+                  label="نام کاربری"
+                  label-for="username"
+                >
+                  <b-form-input
+                    id="username"
+                    v-model="form.username"
+                    :state="validateState('username')"
+                    aria-describedby="username-feedback"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="username-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group :label-cols="4" :horizontal="true" label="ایمیل" label-for="email">
+                  <b-form-input
+                    id="email"
+                    v-model="form.email"
+                    :state="validateState('email')"
+                    aria-describedby="email-feedback"
+                    type="email"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="email-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group :label-cols="4" :horizontal="true" label="نام " label-for="name">
+                  <b-form-input
+                    id="name"
+                    v-model="form.name"
+                    :state="validateState('name')"
+                    aria-describedby="name-feedback"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="name-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group :label-cols="4" :horizontal="true" label="فامیل" label-for="family">
+                  <b-form-input
+                    id="family"
+                    v-model="form.family"
+                    :state="validateState('family')"
+                    aria-describedby="family-feedback"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="family-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group
+                  :label-cols="4"
+                  :horizontal="true"
+                  label="رمز عبور"
+                  label-for="password"
+                >
+                  <b-form-input
+                    id="password"
+                    v-model="form.password"
+                    :state="validateState('password')"
+                    aria-describedby="password-feedback"
+                    type="password"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="password-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group :label-cols="4" :horizontal="true" label="موبایل" label-for="mobile">
+                  <b-form-input
+                    id="mobile"
+                    v-model="form.mobile"
+                    :state="validateState('mobile')"
+                    aria-describedby="mobile-feedback"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="mobile-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group
+                  :label-cols="4"
+                  :horizontal="true"
+                  label="تلفن ثابت"
+                  label-for="phone"
+                >
+                  <b-form-input
+                    id="phone"
+                    v-model="form.phone"
+                    :state="validateState('phone')"
+                    aria-describedby="phone-feedback"
+                    :class="form.url ? 'text-l' : 'text-r'"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="phone-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
+              <b-col sm="6">
+                <b-form-group
+                  :label-cols="4"
+                  :horizontal="true"
+                  label="وب سایت"
+                  label-for="website"
+                >
+                  <b-form-input
+                    id="website"
+                    v-model="form.website"
+                    :state="validateState('website')"
+                    aria-describedby="website-feedback"
+                    :class="form.url ? 'text-l' : 'text-r'"
+                    type="text"
+                    :disabled="false"
+                  ></b-form-input>
+                  <b-form-invalid-feedback id="website-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
 
-                      <div class="form-group">
-                          
-                          <div class="col-xs-12">
-                              <label for="email"><h4>آدرس</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="خراسان شمالی-بجنورد-..." title="enter a location">
-                          </div>
-                      </div>
-                      
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                            <label for="password2"><h4>تکرار رمزعبور</h4></label>
-                              <input type="password" class="form-control" name="password2" id="password2" placeholder="********" title="enter your password2.">
-                          </div>
-                      </div>
+              <b-col sm="12">
+                <b-form-group :label-cols="2" :horizontal="false" label="آدرس" label-for="address">
+                  <b-form-textarea
+                    id="address"
+                    v-model="form.address"
+                    :state="validateState('address')"
+                    aria-describedby="address-feedback"
+                    size="sm"
+                  ></b-form-textarea>
+                  <b-form-invalid-feedback id="address-feedback">این فیلد اجباری است</b-form-invalid-feedback>
+                </b-form-group>
+              </b-col>
 
-                      <div class="form-group">
-                          
-                          <div class="col-xs-6">
-                              <label for="password"><h4>رمزعبور</h4></label>
-                              <input type="password" class="form-control" name="password" id="password" placeholder="********" title="enter your password.">
-                          </div>
-                      </div> 
-                      <div class="form-group">
-                           <div class="col-xs-12">
-                                <br>
-                                    <b-button variant="success" class="btn-save"><i class="glyphicon glyphicon-save save-icon"></i>ذخیره</b-button>
-                                    <b-button variant="light">لغو</b-button>
-                            </div>
-                      </div>
-              	</form>
+              <b-col sm="6"></b-col>
+            </b-row>
+            <b-row>
+              <b-col sm="2"></b-col>
+              <b-col sm="10">
+                <b-button
+                  type="submit"
+                  class="single_add_to_cart_button button alt"
+                  variant="primary"
+                  :disabled="btn_loading"
+                >
+                  <btn-loading :loading="btn_loading" loadingText="لطفا صبر کنید" buttonText="ثبت" />
+                </b-button>
+              </b-col>
+            </b-row>
+          </b-form>
+        </b-card-body>
+      </b-card>
+    </b-col>
+  </div>
 </template>
+
 <script>
+import { validationMixin } from "vuelidate";
+import {
+  required,
+  minLength,
+  maxLength,
+  email
+} from "vuelidate/lib/validators";
+
 export default {
-    layout:'admin'
-}
+  name: "add-new-user",
+  layout: "admin",
+  head: {
+    title: "افزودن کاربر"
+  },
+  data() {
+    return {
+      btn_loading: false,
+      permissionItems: [],
+      url: null,
+      photo: "",
+      photoName: "",
+      skillItems: [],
+      form: {
+        username: null,
+        email: null,
+        name: null,
+        family: null,
+        password: null,
+        mobile: null,
+        phone: null,
+        address: null,
+        website: null
+      }
+    };
+  },
+  validations: {
+    form: {
+      username: { required },
+      email: { required, email },
+      name: { required },
+      family: { required },
+      password: { required },
+      mobile: {},
+      phone: {},
+      website: {},
+      address: { required }
+    }
+  },
+  mounted() {},
+  methods: {
+    selectImage() {
+      this.photo = this.$refs.image.click();
+    },
+    imageSelected(e) {
+      this.$emit("input", e.target.files[0]);
+      this.photo = this.$refs.image.files[0];
+      this.photoName = this.photo.name;
+      // show image in img tag before upload
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+    validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+    },
+    resetForm() {
+      this.form = {
+        username: null,
+        email: null,
+        name: null,
+        family: null,
+        password: null,
+        mobile: null,
+        phone: null,
+        address: null,
+        website: null
+      };
+
+      this.$nextTick(() => {
+        this.$v.form.$reset();
+      });
+    },
+    onSubmit() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) {
+        return;
+      }
+
+      //   this.register();
+      console.log(this.form);
+    }
+  }
+};
 </script>
