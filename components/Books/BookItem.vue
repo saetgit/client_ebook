@@ -62,13 +62,13 @@
             </li>
             <li>
               
-              <nuxt-link to="/books/detail">
+              <nuxt-link to="/cart">
                 <i class="ti-shopping-cart"></i>
               </nuxt-link>
               
             </li>
             <li>
-              <nuxt-link to="/"  target="blank">
+              <nuxt-link to="/books/detail">
                 <i class="ti-new-window"></i>
               </nuxt-link>
             </li>

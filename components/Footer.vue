@@ -27,16 +27,16 @@
             <div class="widget widget_nav_menu ct-widget-1 users-fot">
               <ul class="clearfix">
                 <li>
-                  <a href="#">ثبت نام</a>
+                  <nuxt-link to="/auth/register">ثبت نام</nuxt-link>
                 </li>
                 <li>
-                  <a href="#">ورود</a>
+                  <nuxt-link to="/auth/login">ورود</nuxt-link>
                 </li>
                 <li>
-                  <a href="#">درباره ما</a>
+                  <nuxt-link to="/about">درباره ما</nuxt-link>
                 </li>
                 <li>
-                  <a href="#">شرایط و قوانین</a>
+                  <nuxt-link to="/about">شرایط و قوانین</nuxt-link>
                 </li>
               </ul>
             </div>

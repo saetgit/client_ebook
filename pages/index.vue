@@ -138,7 +138,7 @@ import BookItem from "../components/Books/BookItem";
 export default {
   name: "Home",
    head: {
-    title: "درباره ما "
+    title: "صفحه اصلی "
   },
  
   components: {

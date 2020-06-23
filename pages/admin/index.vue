@@ -3,8 +3,8 @@
     <b-col sm="12" md="12">
       <b-card no-body class="card-default">
         <div slot="header">
-          <i class="fa fa-user-plus"></i>
-          <span> افزودن کاربر جدید </span>
+          <i class="fa fa-user"></i>
+          <span>ویرایش اطلاعات</span>
         </div>
         <b-card-body>
           <b-form @submit.stop.prevent="onSubmit">
@@ -160,7 +160,7 @@
                   variant="primary"
                   :disabled="btn_loading"
                 >
-                  <btn-loading :loading="btn_loading" loadingText="لطفا صبر کنید" buttonText="ثبت" />
+                  <btn-loading :loading="btn_loading" loadingText="لطفا صبر کنید" buttonText="بروزرسانی" />
                 </b-button>
               </b-col>
             </b-row>
@@ -181,10 +181,11 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
+  middleware:'adminauth',
   name: "add-new-user",
   layout: "admin",
   head: {
-    title: "افزودن کاربر"
+    title: "پنل ادمین|افزودن کاربر"
   },
   data() {
     return {
@@ -220,7 +221,18 @@ export default {
       address: { required }
     }
   },
-  mounted() {},
+    mounted() {
+    console.log(this.$auth.user);
+
+    this.form.username = this.$auth.user.username;
+    this.form.website = this.$auth.user.website;
+    this.form.email = this.$auth.user.email;
+    this.form.name = this.$auth.user.name;
+    this.form.family = this.$auth.user.family;
+    this.form.mobile = this.$auth.user.mobile;
+    this.form.phone = this.$auth.user.phone;
+    this.form.address = this.$auth.user.address;
+  },
   methods: {
     selectImage() {
       this.photo = this.$refs.image.click();

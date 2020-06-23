@@ -1,5 +1,8 @@
 
 module.exports = {
+  env: {
+    baseUrlImg: process.env.BASE_URL || "http://localhost:5005/img/"
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -59,13 +62,53 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    "@nuxtjs/auth",
+    "@nuxtjs/pwa",
+    "@nuxtjs/toast",
   ],
+  toast: {
+    position: "top-left",
+    register: [
+      // Register custom toasts
+      {
+        name: "my-error",
+        message: "Oops...Something went wrong",
+        options: {
+          type: "error"
+        }
+      }
+    ]
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: "http://localhost:5005/api"
+  },
+  auth: {
+    // Options
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/users/signin",
+            method: "post",
+            propertyName: "token"
+          },
+          logout: { url: "/users/logout", method: "get" },
+          user: { url: "/users/me", method: "get", propertyName: "user" }
+        },
+        tokenType: "JWT"
+      }
+    },
+    redirect: {
+      login: "/auth/login",
+      logout: "/auth/login",
+      home: false
+    },
+    plugins: ["./plugins/auth"]
   },
   /*
   ** Build configuration

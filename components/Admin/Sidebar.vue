@@ -13,7 +13,7 @@
         ></b-img>
         <b-form-file class="mt-3 text-center center-block file-upload" plain></b-form-file>
 
-        <h3>سارا اعتمادیان</h3>
+        <h3>{{ $auth.user.username}}</h3>
       </div>
       <hr />
       <br />
@@ -26,9 +26,7 @@
           <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
             <b-card-body>
               <b-card-text>
-                <nuxt-link to="/admin/">
-                  <b-card-text>افزودن لیست</b-card-text>
-                </nuxt-link>
+                
                 <nuxt-link to="/admin/list">
                   <b-card-text>لیست کاربران</b-card-text>
                 </nuxt-link>
@@ -62,11 +60,31 @@
             </b-card-body>
           </b-collapse>
         </b-card>
+        <b-card no-body class="mb-1 m-sub">
+          <b-card-header header-tag="header" class="p-1" role="tab">
+            <b-button @click="logout()">
+              <i class="fa fa-sign-out"></i>
+              <span class="mr-1">خروج</span>
+            </b-button>
+          </b-card-header>
+        </b-card>
       </div>
     </div>
   </div>
 </template>
 <script>
 /* eslint-disable */
-export default {};
+export default {
+  methods: {
+     async logout() {
+      try {
+        this.$auth.logout();
+        this.$toast.success("شما با موفقیت خارج شدید", {
+          theme: "bubble",
+          duration: 5000
+        });
+      } catch (e) {}
+    }
+  },
+};
 </script>

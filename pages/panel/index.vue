@@ -66,7 +66,7 @@
                   <b-form-invalid-feedback id="family-feedback">این فیلد اجباری است</b-form-invalid-feedback>
                 </b-form-group>
               </b-col>
-              <b-col sm="6">
+              <!-- <b-col sm="6">
                 <b-form-group
                   :label-cols="4"
                   :horizontal="true"
@@ -83,7 +83,7 @@
                   ></b-form-input>
                   <b-form-invalid-feedback id="password-feedback">این فیلد اجباری است</b-form-invalid-feedback>
                 </b-form-group>
-              </b-col>
+              </b-col>-->
               <b-col sm="6">
                 <b-form-group :label-cols="4" :horizontal="true" label="موبایل" label-for="mobile">
                   <b-form-input
@@ -181,6 +181,7 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
+  middleware: "auth",
   name: "add-new-user",
   layout: "panel",
   head: {
@@ -220,38 +221,75 @@ export default {
       address: { required }
     }
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$auth.user);
+
+    this.form.username = this.$auth.user.username;
+    this.form.website = this.$auth.user.website;
+    this.form.email = this.$auth.user.email;
+    this.form.name = this.$auth.user.name;
+    this.form.family = this.$auth.user.family;
+    this.form.mobile = this.$auth.user.mobile;
+    this.form.phone = this.$auth.user.phone;
+    this.form.address = this.$auth.user.address;
+  },
   methods: {
-    selectImage() {
-      this.photo = this.$refs.image.click();
-    },
-    imageSelected(e) {
-      this.$emit("input", e.target.files[0]);
-      this.photo = this.$refs.image.files[0];
-      this.photoName = this.photo.name;
-      // show image in img tag before upload
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
-    },
+    // selectImage() {
+    //   this.photo = this.$refs.image.click();
+    // },
+    // imageSelected(e) {
+    //   this.$emit("input", e.target.files[0]);
+    //   this.photo = this.$refs.image.files[0];
+    //   this.photoName = this.photo.name;
+    //   this.uploadPhoto();
+    // },
+    // async uploadPhoto() {
+    //   this.btn_loading = true;
+    //   try {
+    //     let formData = new FormData();
+    //     formData.append("avatar", this.photo);
+    //     let config = {
+    //       headers: {
+    //         "content-type": "multipart/form-data"
+    //       }
+    //     };
+
+    //     let res = await this.$axios.$post("/users/avatar", formData, config);
+
+    //     if (res.success) {
+    //       this.btn_loading = false;
+    //       this.$auth.fetchUser();
+    //       this.$toast.success(this.$t("profile_picture_updated"), {
+    //         theme: "bubble",
+    //         duration: 10000
+    //       });
+    //     }
+    //   } catch (error) {
+    //     if (error.response.status === 500) {
+    //       if (
+    //         error.response.data.error === "Only .jpeg or png files are accepted"
+    //       ) {
+    //         this.$toast.error(this.$t("only_jpeg_or_png_files_are_accepted"), {
+    //           theme: "bubble",
+    //           duration: 5000
+    //         });
+    //       } else if (error.response.data.error.message === "File too large") {
+    //         this.$toast.error(this.$t("max_1MB_upload"), {
+    //           theme: "bubble",
+    //           duration: 5000
+    //         });
+    //       }
+    //     }
+    //     this.btn_loading = false;
+    //   }
+    // },
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
     },
     resetForm() {
-      this.form = {
-        username: null,
-        email: null,
-        name: null,
-        family: null,
-        password: null,
-        mobile: null,
-        phone: null,
-        address: null,
-        website: null
-      };
-
       this.$nextTick(() => {
-        this.$v.form.$reset();
+        this.$v.$reset();
       });
     },
     onSubmit() {
@@ -260,9 +298,38 @@ export default {
         return;
       }
 
-      //   this.register();
-      console.log(this.form);
-    }
+      this.updateUser();
+    },
+    // async updateUser() {
+    //   let finalForm = {
+    //     name: this.form.name,
+    //     family: this.form.family,
+    //     mobile: this.form.mobile,
+    //     phone: this.form.phone,
+    //     website: this.form.website,
+    //     address: this.form.address,
+    //     about: this.form.about
+    //   };
+
+    //   this.btn_loading2 = true;
+    //   try {
+    //     let res = await this.$axios.$post("/users/update", finalForm);
+
+    //     if (res.success) {
+    //       this.btn_loading2 = false;
+    //       this.resetForm();
+    //       this.$auth.fetchUser();
+    //       this.$toast.success("ثبت نام شما با موفقیت انجام شد.", {
+    //         theme: "bubble",
+    //         duration: 5000
+    //       });
+    //     }
+    //   } catch (error) {
+    //     this.$toast.success("ثبت نام شما با موفقیت انجام شد.", {
+    //         theme: "bubble",
+    //         duration: 5000
+    //   }
+    // }
   }
 };
 </script>

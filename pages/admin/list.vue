@@ -242,6 +242,7 @@ export default {
     }
   },
   mounted() {
+    
     this.totalRows = this.items.length;
   },
   methods: {

@@ -55,13 +55,13 @@
                 <nuxt-link to="/about">درباره ما</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/auth">کاربران</nuxt-link>
+                <nuxt-link to="#">کاربران</nuxt-link>
                 <ul>
                   <li>
-                    <nuxt-link to="/auth">ثبت نام</nuxt-link>
+                    <nuxt-link to="/auth/register">ثبت نام</nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link to="/auth">ورود</nuxt-link>
+                    <nuxt-link to="/auth/login">ورود</nuxt-link>
                   </li>
                 </ul>
               </li>
