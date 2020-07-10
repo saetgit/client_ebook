@@ -105,9 +105,8 @@
                     <nuxt-link to="books/" class="kopa-btn-5">نمایش همه</nuxt-link>
                   </header>
 
-                  <div class="masonry-container row">
-                    <!-- <BookItem v-for="item in books" :key="item.id" :book="item" /> -->
-                    <!-- <BookItem /> -->
+                  <div class="masonry-container row" v-if="books.length">
+                    <BookItem v-for="item in books" :key="item.id" :book="item" />
                   </div>
                   <!-- masonry-container -->
 
@@ -133,7 +132,7 @@
 </template>
 
 <script>
-// import BookItem from "../components/Books/BookItem";
+import BookItem from '../components/Books/BookItem';
 export default {
   name: "Home",
   head: {
@@ -141,16 +140,16 @@ export default {
   },
 
   components: {
-    // BookItem
+    BookItem
   },
   data() {
     return {
+      books:[],
       btn_loading: false,
       permissionItems: [],
       url: null,
       photo: "",
       photoName: "",
-      skillItems: [],
       Title: null,
       description: null,
       auther: null,
@@ -169,8 +168,7 @@ export default {
       try {
         let res = await this.$axios.$get("/products");
         if (res.success) {
-          this.items = res.data;
-          this.loading = false;
+          this.books = res.data;
         }
       } catch (error) {
         console.log(error);

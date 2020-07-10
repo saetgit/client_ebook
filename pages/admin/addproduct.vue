@@ -92,7 +92,7 @@
                 </b-col>
                 <b-col sm="6">
                   <!-- <b-form-select v-model="form.colorClass"
-                      :options="categoriesItems"></b-form-select> -->
+                  :options="categoriesItems"></b-form-select>-->
                   <b-form-group
                     :label-cols="4"
                     :horizontal="true"
@@ -100,7 +100,7 @@
                     label-for="colorClass"
                   >
                     <b-form-select
-                    class="custom-select2"
+                      class="custom-select2"
                       v-model="form.colorClass"
                       :options="categoriesItems"
                       :state="validateState('colorClass')"
@@ -109,8 +109,7 @@
                       text-field="category"
                       return-object
                       id="colorClass"
-                    >
-                    </b-form-select>
+                    ></b-form-select>
                     <b-form-invalid-feedback id="colorClass-feedback">این فیلد اجباری است</b-form-invalid-feedback>
                   </b-form-group>
                 </b-col>
@@ -171,19 +170,12 @@
             </b-row>
           </b-card-body>
         </b-card>
-        <!-- <ManageSkill
-          :skills="skillItems"
-          v-if="skillItems.length"
-          @updateSkill="loadAfterUpdate($event)"
-        />-->
       </b-col>
     </b-row>
   </div>
 </template>
 
  <script>
-//  import ManageSkill from "../../components/User/ManageSkill";
-
 import { validationMixin } from "vuelidate";
 import { required, minLength, maxLength } from "vuelidate/lib/validators";
 
@@ -191,9 +183,9 @@ export default {
   name: "addProduct",
   middleware: "adminauth",
   layout: "admin",
-  //  components: {
-  //     ManageSkill
-  //   },
+  components: {
+    //     ManageSkill
+  },
   head: {
     title: "افزودن کارمند جدید"
   },
@@ -225,8 +217,7 @@ export default {
       discount: { required },
       rate: { required },
       price: { required },
-      colorClass: {},
-      project_id: {}
+      colorClass: {}
     }
   },
 
@@ -261,7 +252,7 @@ export default {
       this.btn_loading = true;
       try {
         let formData = new FormData();
-        formData.append("avatar", this.photo);
+        formData.append("img", this.photo);
         formData.append("Title", this.form.Title);
         formData.append("description", this.form.description);
         formData.append("auther", this.form.auther);
@@ -277,15 +268,14 @@ export default {
         };
 
         let res = await this.$axios.$post(
-          "/product/signupWithImg",
+          "/products/addProduct",
           formData,
           config
         );
 
         if (res.success) {
           this.btn_loading = false;
-          this.$auth.fetchUser();
-          this.$toast.success("ثبت نام با موفقیت انجام شد", {
+          this.$toast.success("ثبت با موفقیت انجام شد", {
             theme: "bubble",
             duration: 10000
           });
@@ -379,7 +369,7 @@ export default {
         return;
       }
 
-      this.register();
+      this.registerWithImg();
       // color class nemikhad vakhted hadar mire, baadesham uno to bayad baste be category khodet ok koni na inja sab koni
 
       // if (this.photo) {

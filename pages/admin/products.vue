@@ -82,8 +82,7 @@
                 >
                   <template v-slot:cell(num)="data">{{ data.index + 1 }}</template>
                   <template v-slot:cell(actions)="data">
-                    <span class="fa fa-edit pointer"></span>
-                    <span class="fa fa-trash pointer" @click="deleteProduct(data.item.id)"></span>
+                    <span class="fa fa-trash pointer" @click="deleteConfirm(data.item.id)"></span>
                   </template>
                 </b-table>
               </b-col>
@@ -129,8 +128,8 @@
 <script>
 export default {
   name: "manage-products",
-layout: "admin",
-head: {
+  layout: "admin",
+  head: {
     title: "لیست محصولات"
   },
   data() {
@@ -161,13 +160,13 @@ head: {
         },
         {
           label: "نام محصول",
-          key: "product_name",
+          key: "Title",
           sortable: true,
           tdClass: "text-left"
         },
         {
-          label: "تعداد",
-          key: "qty",
+          label: "nevisande",
+          key: "auther",
           sortable: true,
           tdClass: "text-left"
         },
@@ -179,7 +178,7 @@ head: {
         },
         {
           label: "تاریخ",
-          key: "date",
+          key: "createdAt",
           sortable: true,
           tdClass: "text-left"
         },
@@ -190,97 +189,11 @@ head: {
           tdClass: "text-center"
         }
       ],
-      items: [
-        {
-          id: 1,
-          product_name: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 2,
-          product_name: "توت فرنگی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 3,
-          product_name: "یه خربزه ای چیزی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 4,
-          product_name: "هندوانه",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 11,
-          product_name: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 12,
-          product_name: "توت فرنگی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 22,
-          product_name: "یه خربزه ای چیزی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 33,
-          product_name: "هندوانه",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 543,
-          product_name: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 454,
-          product_name: "توت فرنگی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 54,
-          product_name: "یه خربزه ای چیزی",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        },
-        {
-          id: 66,
-          product_name: "هندوانه",
-          qty: "2",
-          price: "2433444",
-          date: "1399/12/2"
-        }
-      ]
+      items: []
     };
   },
   computed: {
     sortOptions() {
-      // Create an options list from our fields
       return this.fields
         .filter(f => f.sortable)
         .map(f => {
@@ -289,9 +202,41 @@ head: {
     }
   },
   mounted() {
-    this.totalRows = this.items.length;
+    this.gteProducts();
   },
   methods: {
+    deleteConfirm(id) {
+      let r = confirm("hazf konam yani?");
+      if (r == true) {
+        this.destroy(id);
+      } else {
+      }
+    },
+    async destroy(id) {
+      try {
+        let res = await this.$axios.$delete("/products/" + id);
+        if (res.success) {
+          this.gteProducts();
+          this.$toast.success("hazf shod", {
+            theme: "bubble",
+            duration: 5000
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async gteProducts() {
+      try {
+        let res = await this.$axios.$get("/products");
+        if (res.success) {
+          this.items = res.data;
+          this.totalRows = this.items.length;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     deleteProduct(id) {
       alert(id);
     },

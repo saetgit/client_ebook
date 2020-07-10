@@ -1,14 +1,14 @@
 <template>
   <div class="ms-item-01 show col-md-3 col-sm-3 col-xs-3" data-val="1">
-    <article :class="'entry-item ct-item-1 ' + book.colorClass">
+    <article :class="'entry-item ct-item-1 '">
       <div class="entry-thumb">
-        <nuxt-link to="/books/detail">
-          <img :src="book.img" alt />
+        <nuxt-link :to="'/books/'+book.id">
+          <img :src="img_url +book.img" :alt="book.title" />
         </nuxt-link>
         <div class="entry-content">
           <header>
             <h4 class="entry-title">
-              <nuxt-link to="/books/detail" class="title-book">{{book.title}}</nuxt-link>
+              <nuxt-link :to="'/books/'+book.id" class="title-book">{{book.title}}</nuxt-link>
             </h4>
             <div class="kopa-rating">
               <ul>
@@ -41,7 +41,7 @@
             <li>
               <nuxt-link to="/">
                 <i class="fa fa-folder-o"></i>
-                {{book.category}}
+                <!-- {{book.category}} -->
               </nuxt-link>
             </li>
           </ul>
@@ -63,7 +63,7 @@
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/b              ooks/detail">
+              <nuxt-link to="/books/detail">
                 <i class="ti-new-window"></i>
               </nuxt-link>
             </li>
@@ -75,14 +75,24 @@
   <!-- masonry-item -->
 </template>
 
-<s<script>
+<script>
 export default {
   name: "book-component",
+  data(){
+    return{
+      img_url : 'http://localhost:5005/uploads/'
+    }
+  },
   props: {
     book: {
       type: Object,
       default: () => {}
     }
+  },
+   mounted() {
+    
+  },
+  methods: {
   }
 };
 </script>

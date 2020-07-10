@@ -52,32 +52,7 @@
                       >
                         <img src="/images/p26/1.jpg" alt />
                       </a>
-                      <div class="thumbnails columns-3">
-                        <a
-                          href="/images/p26/2.jpg"
-                          class="zoom first"
-                          title
-                          data-rel="prettyPhoto[product-gallery]"
-                        >
-                          <img src="/images/p26/2.jpg" alt />
-                        </a>
-                        <a
-                          href="/images/p26/1.jpg"
-                          class="zoom"
-                          title
-                          data-rel="prettyPhoto[product-gallery]"
-                        >
-                          <img src="/images/p26/1.jpg" alt />
-                        </a>
-                        <a
-                          href="/images/p26/3.jpg"
-                          class="zoom"
-                          title
-                          data-rel="prettyPhoto[product-gallery]"
-                        >
-                          <img src="/images/p26/3.jpg" alt />
-                        </a>
-                      </div>
+                      
                     </div>
                     <div class="summary entry-summary">
                       <div class="kopa-pull-left">
@@ -120,19 +95,7 @@
                         >رمان «دالان بهشت» از پرفروش ترین رمان های ایرانی است. داستان زندگی دختری که بنا به تصمیم والدینش ازدواج می کند، اما به دلیل ناپختگی خیلی زود شکست می خورد و در طول سال های بعد به اشتباهاتش پی می برد. در بخشی از داستان می خوانیم: «خدایا چقدر نفهم و کودن بودم که درک نمی کردم . حس حسادت زنانه کجا و غیرت و تعصب مردانه کجا! حتی مهلت نشد چشم هایش را ببینم ، سیلی اش چنان سخت و محکم و آنی ، مثل برق توی صورتم خورد که هیچ چیز ندیدم .» پسر یا دختر کدام مقصرند؟ و آیا این پرسش از ریشه اشتباه نیست ؟ پسر جوانی تحصیل کرده است ، زندگی اجتماعی موفقی دارد و رفتارهایش توسط هر دو خانواده تایید می شود. دختر اما بی تجربه است ، از پشت میز مدرسه و از بازی کودکانه به جایی پرتاب شده است که نمی شناسدش و بزرگ ترها زندگی زناشویی اش می خوانند. همه چیز علیه دختر است . نویسنده اما به یاری سطرهای نانوشته اش چیز دیگری را به تصویر می کشد. سپیدخوانی ها از به مسلخ بردن یک قربانی حکایت می کنند..</p>
                       </div>
                       <form class="cart" method="post" action="/cart">
-                        <div class="quantity">
-                          <input type="button" value="-" class="minus" />
-                          <input
-                            type="number"
-                            step="1"
-                            min="1"
-                            name="quantity"
-                            value="1"
-                            title="Qty"
-                            class="input-text qty text"
-                          />
-                          <input type="button" value="+" class="plus" />
-                        </div>
+                      
                         <input type="hidden" name="add-to-cart" value="86" />
                         <button
                           type="submit"
@@ -177,10 +140,45 @@
   <!-- Mirrored from dinhvankiem.com/demo/e-reading/html/shop-detail-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Jan 2020 05:13:06 GMT -->
 </html>
 </template>
+
 <script>
 export default {
-    head: {
+  name: "Home",
+  head: {
     title: "  جزئیات محصول "
   },
-}
+  data() {
+    return {
+      books:[],
+      btn_loading: false,
+      permissionItems: [],
+      url: null,
+      photo: "",
+      photoName: "",
+      Title: null,
+      description: null,
+      auther: null,
+      discount: null,
+      rate: null,
+      price: null,
+      colorClass: null
+    };
+  },
+  mounted() {
+    let id = this.$route.params.id;
+    this.getProduct(id);
+  },
+  methods: {
+    async getProduct(id) {
+      try {
+        let res = await this.$axios.$get("/products/"+id);
+        if (res.success) {
+          this.books = res.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+};
 </script>
