@@ -13,6 +13,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "moment-timezone": "^0.5.31",
+    "vue-moment-jalaali": "^2.0.0",
+    "vue-lodash": "^2.1.2",
+    "lodash": "^4.17.15",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-beta.20",

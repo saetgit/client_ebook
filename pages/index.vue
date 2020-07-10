@@ -58,8 +58,6 @@
       </section>
       <!-- kopa-area-1 -->
 
-      
-
       <section class="kopa-area kopa-area-3">
         <div class="kopa-area-tg-2">
           <span></span>
@@ -108,7 +106,8 @@
                   </header>
 
                   <div class="masonry-container row">
-                    <BookItem v-for="item in books" :key="item.id" :book="item" />
+                    <!-- <BookItem v-for="item in books" :key="item.id" :book="item" /> -->
+                    <!-- <BookItem /> -->
                   </div>
                   <!-- masonry-container -->
 
@@ -134,117 +133,49 @@
 </template>
 
 <script>
-import BookItem from "../components/Books/BookItem";
+// import BookItem from "../components/Books/BookItem";
 export default {
   name: "Home",
-   head: {
+  head: {
     title: "صفحه اصلی "
   },
- 
+
   components: {
-    BookItem
+    // BookItem
   },
   data() {
     return {
-      books: [
-        {
-          id: 1,
-          img: "images/p2/1.jpg",
-          type: "جدید",
-          discount: "20%",
-          title: "دالان بهشت",
-          rate: 2,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: "نازی صفوی",
-          category: "رمان",
-          colorClass: "style-01"
-        },
-        {
-          id: 2,
-          img: "images/p2/2.jpg",
-          type: "جدید",
-          discount: "20%",
-          title: " آبنبات هل دار",
-          rate: 5,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: " مهرداد صدقی",
-          category: "طنز",
-          colorClass: "style-02"
-        },
-        {
-          id: 3,
-          img: "images/p2/3.jpg",
-          type: "پرفروش",
-          discount: "%20",
-          title: "قورباغه ات را قورت بده",
-          rate: 2,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: " hossein bajan",
-          category: "مجله",
-          colorClass: "style-04"
-        },
-        {
-          id: 4,
-          img: "images/p2/4.jpg",
-          type: "جدید",
-          discount: "%20",
-          title: "asar morkab",
-          rate: 2,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: " sara etemadian",
-          category: "طنز",
-          colorClass: "style-03"
-        },
-        {
-          id: 5,
-          img: "images/p2/5.jpg",
-          type: "پرفروش",
-          discount: "%20",
-          title: "مردان مریخی زنان ونوسی",
-          rate: 3,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: "  جان گری",
-          category: "مجله",
-          colorClass: "style-02"
-        },
-        {
-          id: 6,
-          img: "images/p2/6.jpg",
-          type: "جدید",
-          discount: "%20",
-          title: "برنامه نویسی",
-          rate: 4,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: "عادل باژن",
-          category: "طنز",
-          colorClass: "style-03"
-        },
-        {
-          id: 7,
-          img: "images/p2/7.jpg",
-          type: "پرفروش",
-          discount: "%20",
-          title: "مکاترونیک",
-          rate: 5,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: " عادل باژن",
-          category: "کتاب",
-          colorClass: "style-01"
-        },
-        {
-          id: 8,
-          img: "images/p2/8.jpg",
-          type: "جدید",
-          discount: "%20",
-          title: "کیف انگلیسی",
-          rate: 3,
-          description: "این یک توضیحاتی درباره کتاب است",
-          auther: " جان دئو",
-          category: "کتاب",
-          colorClass: "style-04"
-        }
-      ]
+      btn_loading: false,
+      permissionItems: [],
+      url: null,
+      photo: "",
+      photoName: "",
+      skillItems: [],
+      Title: null,
+      description: null,
+      auther: null,
+      discount: null,
+      rate: null,
+      price: null,
+      colorClass: null
     };
+  },
+
+  mounted() {
+    this.gteProducts();
+  },
+  methods: {
+    async gteProducts() {
+      try {
+        let res = await this.$axios.$get("/products");
+        if (res.success) {
+          this.items = res.data;
+          this.loading = false;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 };
 </script>

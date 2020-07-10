@@ -8,8 +8,7 @@
         <div class="entry-content">
           <header>
             <h4 class="entry-title">
-              <nuxt-link to="/books/detail" class="title-book">
-              {{book.title}}</nuxt-link>
+              <nuxt-link to="/books/detail" class="title-book">{{book.title}}</nuxt-link>
             </h4>
             <div class="kopa-rating">
               <ul>
@@ -26,9 +25,7 @@
           <p>{{book.description}}</p>
           <p class="ct-space-1"></p>
           <div class="ct-icon-1">
-            <p>
-              {{book.discount}}
-            </p>
+            <p>{{book.discount}}</p>
           </div>
         </div>
       </div>
@@ -38,11 +35,11 @@
             <li>
               <nuxt-link to="/" class="auther-book">
                 <i class="fa fa-user"></i>
-                 {{book.auther}}
+                {{book.auther}}
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/" >
+              <nuxt-link to="/">
                 <i class="fa fa-folder-o"></i>
                 {{book.category}}
               </nuxt-link>
@@ -61,14 +58,12 @@
               </div>
             </li>
             <li>
-              
               <nuxt-link to="/cart">
                 <i class="ti-shopping-cart"></i>
               </nuxt-link>
-              
             </li>
             <li>
-              <nuxt-link to="/books/detail">
+              <nuxt-link to="/b              ooks/detail">
                 <i class="ti-new-window"></i>
               </nuxt-link>
             </li>
@@ -76,12 +71,11 @@
         </div>
       </footer>
     </article>
-    
-
   </div>
   <!-- masonry-item -->
 </template>
-<script>
+
+<s<script>
 export default {
   name: "book-component",
   props: {

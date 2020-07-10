@@ -82,8 +82,12 @@
                 >
                   <template v-slot:cell(num)="data">{{ data.index + 1 }}</template>
                   <template v-slot:cell(actions)="data">
-                    <span class="fa fa-edit pointer"></span>
+                    <span class="fa fa-edit pointer m-l-1">
+                    </span>
                     <span class="fa fa-trash pointer" @click="deleteProduct(data.item.id)"></span>
+                  </template>
+                  <template v-slot:cell(fullname)="data">
+                    <span>{{data.item.name + ' ' + data.item.family}}</span>
                   </template>
                 </b-table>
               </b-col>
@@ -127,9 +131,14 @@
 </template>
 
 <script>
+
+
 export default {
   name: "manage-products",
   layout: "admin",
+  components: {
+    
+  },
   head: {
     title: "لیست کاربران"
   },
@@ -160,22 +169,28 @@ export default {
           tdClass: "text-center"
         },
         {
-          label: "نام و نام خانوادگی",
-          key: "user_name",
+          label: "نام کاربری",
+          key: "username",
           sortable: true,
-          tdClass: "text-left"
+          tdClass: "text-center"
+        },
+        {
+          label: "نام و نام خانوادگی",
+          key: "fullname",
+          sortable: true,
+          tdClass: "text-center"
         },
         {
           label: "نوع کاربری",
           key: "type",
           sortable: true,
-          tdClass: "text-left"
+          tdClass: "text-center"
         },
         {
           label: " تاریخ عضویت",
-          key: "date",
+          key: "createdAt",
           sortable: true,
-          tdClass: "text-left"
+          tdClass: "text-center"
         },
         {
           label: "عملیات",
@@ -184,51 +199,7 @@ export default {
           tdClass: "text-center"
         }
       ],
-      items: [
-        {
-          id: 1,
-          user_name: " حسین باژن",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 2,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 3,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 4,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 5,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 6,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-        {
-          id: 7,
-          user_name: " سارا اعتمادیان",
-          type: "کاربر عادی",
-          date: "1399/12/2"
-        },
-       
-      ]
+      items: []
     };
   },
   computed: {
@@ -242,10 +213,26 @@ export default {
     }
   },
   mounted() {
-    
+    this.users();
     this.totalRows = this.items.length;
   },
   methods: {
+    async users() {
+      try {
+        let res = await this.$axios.$get("/users");
+        if (res.success) {
+          this.items = res.data;
+          this.loading = false;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    loadAfterUpdate(event) {
+      if (event) {
+        this.users();
+      }
+    },
     deleteProduct(id) {
       alert(id);
     },

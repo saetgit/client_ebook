@@ -67,24 +67,6 @@
                 </b-form-group>
               </b-col>
               <b-col sm="6">
-                <b-form-group
-                  :label-cols="4"
-                  :horizontal="true"
-                  label="رمز عبور"
-                  label-for="password"
-                >
-                  <b-form-input
-                    id="password"
-                    v-model="form.password"
-                    :state="validateState('password')"
-                    aria-describedby="password-feedback"
-                    type="password"
-                    :disabled="false"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="password-feedback">این فیلد اجباری است</b-form-invalid-feedback>
-                </b-form-group>
-              </b-col>
-              <b-col sm="6">
                 <b-form-group :label-cols="4" :horizontal="true" label="موبایل" label-for="mobile">
                   <b-form-input
                     id="mobile"
@@ -160,7 +142,11 @@
                   variant="primary"
                   :disabled="btn_loading"
                 >
-                  <btn-loading :loading="btn_loading" loadingText="لطفا صبر کنید" buttonText="بروزرسانی" />
+                  <btn-loading
+                    :loading="btn_loading"
+                    loadingText="لطفا صبر کنید"
+                    buttonText="بروزرسانی"
+                  />
                 </b-button>
               </b-col>
             </b-row>
@@ -181,7 +167,7 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
-  middleware:'adminauth',
+  middleware: "adminauth",
   name: "add-new-user",
   layout: "admin",
   head: {
@@ -214,14 +200,13 @@ export default {
       email: { required, email },
       name: { required },
       family: { required },
-      password: { required },
       mobile: {},
       phone: {},
       website: {},
       address: { required }
     }
   },
-    mounted() {
+  mounted() {
     console.log(this.$auth.user);
 
     this.form.username = this.$auth.user.username;
@@ -234,36 +219,13 @@ export default {
     this.form.address = this.$auth.user.address;
   },
   methods: {
-    selectImage() {
-      this.photo = this.$refs.image.click();
-    },
-    imageSelected(e) {
-      this.$emit("input", e.target.files[0]);
-      this.photo = this.$refs.image.files[0];
-      this.photoName = this.photo.name;
-      // show image in img tag before upload
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
-    },
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
     },
     resetForm() {
-      this.form = {
-        username: null,
-        email: null,
-        name: null,
-        family: null,
-        password: null,
-        mobile: null,
-        phone: null,
-        address: null,
-        website: null
-      };
-
       this.$nextTick(() => {
-        this.$v.form.$reset();
+        this.$v.$reset();
       });
     },
     onSubmit() {
@@ -271,9 +233,65 @@ export default {
       if (this.$v.form.$anyError) {
         return;
       }
+      console.log("==============================>");
 
-      //   this.register();
-      console.log(this.form);
+      this.updateUser();
+    },
+    async updateUser() {
+      let finalForm = {
+        name: this.form.name,
+        family: this.form.family,
+        mobile: this.form.mobile,
+        phone: this.form.phone,
+        website: this.form.website,
+        address: this.form.address
+      };
+
+      this.btn_loading2 = true;
+      try {
+        let res = await this.$axios.$post("/users/update", finalForm);
+
+        if (res.success) {
+          this.btn_loading2 = false;
+          this.resetForm();
+          this.$auth.fetchUser();
+          this.$toast.success("اطلاعات شما با موفقیت بروزرسانی شد", {
+            theme: "bubble",
+            duration: 5000
+          });
+        }
+      } catch (error) {}
+    },
+
+    async logout() {
+      try {
+        this.$auth.logout();
+        this.removeOffModalTimeRecord();
+      } catch (e) {
+        this.formError = e.message;
+      }
+    },
+    logoutConfirm() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t("sure_exit_from_kartable"), {
+          title: this.$t("exit_kartable"),
+          size: "sm",
+          buttonSize: "sm",
+          okVariant: "danger",
+          okTitle: this.$t("yes_exit"),
+          cancelTitle: this.$t("no"),
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true
+        })
+        .then(value => {
+          if (value) {
+            this.logout();
+          }
+        })
+        .catch(err => {
+          // An error occurred
+        });
     }
   }
 };

@@ -46,7 +46,9 @@ module.exports = {
   */
   plugins: [
     { src: "~plugins/vuelidate" },
-    { src: "~plugins/global-commponents" }
+    { src: "~plugins/global-commponents" },
+    // { src: "~plugins/filter" },
+
   ],
   /*
   ** Nuxt.js dev-modules
@@ -109,6 +111,7 @@ module.exports = {
       home: false
     },
     plugins: ["./plugins/auth"]
+
   },
   /*
   ** Build configuration

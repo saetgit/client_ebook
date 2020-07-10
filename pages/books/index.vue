@@ -56,7 +56,7 @@
                                 <div class="woocommerce-main-content">
 
                                     <div class="masonry-container row">
-                                        <BookItem v-for="item in books" :key="item.id" :book="item"/>
+                                        <!-- <BookItem v-for="item in books" :key="item.id" :book="item"/> -->
                                     </div>
 
                                 </div>
@@ -82,14 +82,14 @@
         <!-- main-content -->
 </template>
 <script>
-import BookItem from "../../components/Books/BookItem";
+// import BookItem from "../../components/Books/BookItem";
 export default {
   name: "Books",
    head: {
     title: " نمایش همه  "
   },
   components: {
-    BookItem
+    // BookItem
   },
   data() {
     return {
