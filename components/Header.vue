@@ -72,8 +72,8 @@
         <!-- col-md-8 -->
 
         <b-col md="2" sm="6" xs="6"  class="text-right">
-          <div class="kopa-cart kopa-dropdown">
-            <b-badge pill variant="danger" class="icon-dan">1</b-badge>
+          <div @click="gotoCart" class="kopa-cart kopa-dropdown">
+            <b-badge pill variant="danger" class="icon-dan">{{count}}</b-badge>
             <span class="ti-shopping-cart kopa-dropdown-btn"></span>
 
             <div class="kopa-dropdown-content">
@@ -145,43 +145,7 @@
           </div>
           <!-- cart -->
 
-          <div class="dashboard">
-            <b-dropdown size="lg" variant="link" toggle-class="text-decoration-none" no-caret>
-              <template v-slot:button-content>
-                <div class="short-nav kopa-dropdown">
-                  <div class="kopa-btn-1 kopa-dropdown-btn">
-                    <span></span>
-                  </div>
-                </div>
-              </template>
-              <div class="sub-dash">
-              <b-dropdown-item>کتاب های من</b-dropdown-item>
-              <b-dropdown-item>سبد خرید</b-dropdown-item>
-              <b-dropdown-item>حساب کاربری من</b-dropdown-item>
-              <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item >خروج از حساب کاربری</b-dropdown-item>
-              </div>
-            </b-dropdown>
-          </div>
-          <!-- short-nav -->
-
-          <div class="kopa-search-box-1 kopa-dropdown">
-            <span class="ti-search kopa-dropdown-btn"></span>
-            <form action="#" class="search-form-1 kopa-dropdown-content" method="get">
-              <input
-                class="search-text"
-                type="text"
-                onblur="if (this.value == '')
-                                    this.value = this.defaultValue;"
-                onfocus="if (this.value == this.defaultValue)
-                                    this.value = '';"
-                value="Search..."
-                placeholder="Search..."
-                name="s"
-              />
-            </form>
-          </div>
-          <!-- search-box -->
+         
         </b-col>
         <!-- col-md-2 -->
       </b-row>
@@ -191,8 +155,34 @@
   <!-- kopa-page-header-1 -->
 </template>
 <script>
-/* eslint-disable */
+import { mapGetters } from "vuex";
+
 export default {
-  components: {}
+  components: {},
+  computed: {
+    ...mapGetters({
+      count: "cart/getCount",
+      cart: "cart/getCart"
+    })
+  },
+  mounted() {
+    this.getCart();
+  },
+  methods: {
+    async getCart() {
+      try {
+        let res = await this.$axios.$get("/products/myCart");
+        if (res.success) {
+          this.$store.dispatch("cart/setCart", res.data);
+          this.$store.dispatch("cart/setCount", res.data.length);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    gotoCart(){
+      this.$router.push('/cart')
+    }
+  }
 };
 </script>

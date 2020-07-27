@@ -5,7 +5,6 @@
       <div class="card">
         <div class="login-box">
           <div class="login-snip">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked />
             <input id="tab-2" type="radio" name="tab" class="sign-up" checked />
             <label for="tab-2" class="tab">ثبت نام</label>
             <div class="login-space">

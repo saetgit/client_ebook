@@ -165,7 +165,7 @@ export default {
           tdClass: "text-left"
         },
         {
-          label: "nevisande",
+          label: "نویسنده",
           key: "auther",
           sortable: true,
           tdClass: "text-left"
@@ -206,7 +206,7 @@ export default {
   },
   methods: {
     deleteConfirm(id) {
-      let r = confirm("hazf konam yani?");
+      let r = confirm("آیا می خواهید حذف کنید؟");
       if (r == true) {
         this.destroy(id);
       } else {
@@ -218,6 +218,11 @@ export default {
         if (res.success) {
           this.gteProducts();
           this.$toast.success("hazf shod", {
+            theme: "bubble",
+            duration: 5000
+          });
+        } else{
+          this.$toast.error(res.message, {
             theme: "bubble",
             duration: 5000
           });

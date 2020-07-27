@@ -44,68 +44,30 @@
                     <tr>
                       <th class="product-thumbnail">&nbsp;</th>
                       <th class="product-name">محصولات</th>
+                      <th class="product-auther" style="text-align:right">نویسنده</th>
                       <th class="product-price">قیمت</th>
-                      <th class="product-quantity">تعداد</th>
-                      <th class="product-subtotal">جمع</th>
-                      <th class="product-remove">&nbsp;</th>
+                      <th class="product-remove">حذف</th>
                     </tr>
                   </thead>
                   <tbody class="tb-cart">
-                    <tr class="cart_item">
+                    <tr v-for="item in cart" :key="item.id" class="cart_item">
                       <td class="product-thumbnail">
                         <a href="#">
-                          <img src="images/header/1.jpg" class alt />
+                          <img :src="img_url +item.Product.img" class alt />
                         </a>
                       </td>
                       <td class="product-name" data-title="Product">
-                        <a href="#">دالان بهشت</a>
+                        <a href="#">{{item.Product.Title}}</a>
+                      </td>
+                      <td class="product-name" data-title="Product">
+                        <a href="#">{{item.Product.auther}}</a>
                       </td>
                       <td class="product-price" data-title="Price">
-                        <span class="amount">50.000تومان</span>
+                        <span class="amount">{{item.Product.price}}تومان</span>
                       </td>
-                      <td class="product-quantity" data-title="Quantity">
-                        <div class="quantity">
-                          <input
-                            type="number"
-                            step="1"
-                            min="0"
-                            value="1"
-                            class="input-text qty text"
-                            size="4"
-                          />
-                        </div>
-                      </td>
-                      <td class="product-subtotal" data-title="Total">
-                        <span class="amount">50.000تومان</span>
-                      </td>
-                      <td class="product-remove">
-                        <a href="#" class="remove" title>×</a>
-                      </td>
-                    </tr>
 
-                    <tr>
-                      <td colspan="6" class="actions">
-                        <div class="coupon">
-                          <label for="coupon_code">کد تخفیف:</label>
-                          <input
-                            type="text"
-                            name="coupon_code"
-                            class="input-text"
-                            id="coupon_code"
-                            value
-                            placeholder="کد تخفیف خود را وارد کنید."
-                            style="float:right"
-                          />
-                          <nuxt-link to="/cart">
-                          <input
-                            type="submit"
-                            class="button"
-                            name="apply_coupon"
-                            value="ثبت کد"
-                            style="float:left;background-color:#ff4057;margin-right:10px;color:#fff"
-                          />
-                          </nuxt-link>
-                        </div>
+                      <td class="product-remove">
+                        <a @click="destroy(item.Product.id)" class="remove" title>×</a>
                       </td>
                     </tr>
                   </tbody>
@@ -116,17 +78,18 @@
                   <h2>کل سبد خرید</h2>
                   <table class="shop_table shop_table_responsive">
                     <tbody class="total-cart">
-                      <tr class="cart-subtotal">
-                        <th>جمع</th>
+                      <th>جمع</th>
+                      <tr v-for="item in cart" :key="item.id" class="cart-subtotal">
                         <td data-title="Subtotal">
-                          <span class="amount">50.000تومان</span>
+                          <span class="amount col-lg-12">{{item.Product.price}}تومان</span>
                         </td>
                       </tr>
+                      <th>جمع کل</th>
                       <tr class="order-total">
-                        <th>جمع کل</th>
                         <td data-title="Total">
                           <strong>
-                            <span class="amount">50.000تومان</span>
+                            <span>{{sum}}</span>
+                            <span class="amount">تومان</span>
                           </strong>
                         </td>
                       </tr>
@@ -148,10 +111,60 @@
   </div>
   <!-- main-content -->
 </template>
+
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-    head: {
+  head: {
     title: " سبد خرید "
   },
-}
+  data() {
+    return {
+      sum: 0,
+      img_url: "http://localhost:5005/uploads/"
+    };
+  },
+  components: {},
+  computed: {
+    ...mapGetters({
+      count: "cart/getCount",
+      cart: "cart/getCart"
+    })
+  },
+  mounted() {
+    this.getCart();
+  },
+  methods: {
+    async getCart() {
+      try {
+        let res = await this.$axios.$get("/products/myCart");
+        if (res.success) {
+          this.$store.dispatch("cart/setCart", res.data);
+          this.$store.dispatch("cart/setCount", res.data.length);
+
+          for (const item of this.cart) {
+            this.sum += parseInt(item.Product.price);
+          }
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async destroy(id) {
+      try {
+        let res = await this.$axios.$delete("/products/deleteFromCart/" + id);
+        if (res.success) {
+          this.$toast.success(res.message, {
+            theme: "bubble",
+            duration: 5000
+          });
+          this.getCart();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+};
 </script>

@@ -9,7 +9,7 @@
             <input id="tab-1" type="radio" name="tab" class="sign-in" checked />
             <label for="tab-1" class="tab">ورود</label>
             <input id="tab-2" type="radio" name="tab" class="sign-up" />
-            <label for="tab-2" class="tab">ثبت نام</label>
+            <label for="tab-2" class="tab"></label>
             <div class="login-space">
               <b-form @submit.stop.prevent="onSubmit">
                 <div class="login">
@@ -76,9 +76,7 @@
                     </b-row>
                   </div>
                   <div class="hr"></div>
-                  <div class="foot">
-                    <a href="#">رمز خود را فراموش کرده اید؟</a>
-                  </div>
+              
                 </div>
               </b-form>
             </div>

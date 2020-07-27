@@ -55,30 +55,9 @@
                       
                     </div>
                     <div class="summary entry-summary">
-                      <div class="kopa-pull-left">
-                        <div
-                          class="woocommerce-product-rating"
-                          itemprop="aggregateRating"
-                          itemscope
-                          itemtype="http://schema.org/AggregateRating"
-                        >
-                          <a href="#reviews" class="woocommerce-review-link" rel="nofollow">
-                            <span itemprop="ratingCount" class="count">4</span> بازدید
-                          </a>
-                        </div>
-                      </div>
-                      <div class="kopa-pull-right">
-                        <div class="add-to-wishlist">
-                          <div>
-                            <a href="#" class="add_to_wishlist">
-                              <i class="ti-heart"></i>
-                              <span>Wishlist</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
+              
                       <div class="clearfix"></div>
-                      <h1 itemprop="name" class="product_title entry-title">دالان بهشت</h1>
+                      <h1 itemprop="name" class="product_title entry-title">{{book.Title}} </h1>
                       <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                         <p class="price">
                           <del>
@@ -92,7 +71,7 @@
                       <div itemprop="description">
                         <p
                           class="pa-deta"
-                        >رمان «دالان بهشت» از پرفروش ترین رمان های ایرانی است. داستان زندگی دختری که بنا به تصمیم والدینش ازدواج می کند، اما به دلیل ناپختگی خیلی زود شکست می خورد و در طول سال های بعد به اشتباهاتش پی می برد. در بخشی از داستان می خوانیم: «خدایا چقدر نفهم و کودن بودم که درک نمی کردم . حس حسادت زنانه کجا و غیرت و تعصب مردانه کجا! حتی مهلت نشد چشم هایش را ببینم ، سیلی اش چنان سخت و محکم و آنی ، مثل برق توی صورتم خورد که هیچ چیز ندیدم .» پسر یا دختر کدام مقصرند؟ و آیا این پرسش از ریشه اشتباه نیست ؟ پسر جوانی تحصیل کرده است ، زندگی اجتماعی موفقی دارد و رفتارهایش توسط هر دو خانواده تایید می شود. دختر اما بی تجربه است ، از پشت میز مدرسه و از بازی کودکانه به جایی پرتاب شده است که نمی شناسدش و بزرگ ترها زندگی زناشویی اش می خوانند. همه چیز علیه دختر است . نویسنده اما به یاری سطرهای نانوشته اش چیز دیگری را به تصویر می کشد. سپیدخوانی ها از به مسلخ بردن یک قربانی حکایت می کنند..</p>
+                        >{{book.description}}</p>
                       </div>
                       <form class="cart" method="post" action="/cart">
                       
@@ -145,8 +124,10 @@
 export default {
   name: "Home",
   head: {
-    title: "  جزئیات محصول "
+    title: "صفحه اصلی "
   },
+
+ 
   data() {
     return {
       books:[],
@@ -164,16 +145,18 @@ export default {
       colorClass: null
     };
   },
+
   mounted() {
-    let id = this.$route.params.id;
-    this.getProduct(id);
+    this.gteProducts();
   },
   methods: {
-    async getProduct(id) {
+    async gteProducts() {
       try {
-        let res = await this.$axios.$get("/products/"+id);
+        let res = await this.$axios.$get("/products/");
         if (res.success) {
           this.books = res.data;
+          console.log('===========',this.books);
+          
         }
       } catch (error) {
         console.log(error);

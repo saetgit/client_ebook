@@ -81,9 +81,20 @@
                   @filtered="onFiltered"
                 >
                   <template v-slot:cell(num)="data">{{ data.index + 1 }}</template>
+                  <template v-slot:cell(product)="data">
+                    <span>{{data.item.Product.Title}}</span>
+                  </template>
+                  <template v-slot:cell(user)="data">
+                    <span>{{data.item.User.username}}</span>
+                  </template>
+                  <template v-slot:cell(price)="data">
+                    <span>{{data.item.Product.price}}</span>
+                  </template>
+                  <template v-slot:cell(data)="data">
+                    <span>{{data.item.Product.createdAt}}</span>
+                  </template>
                   <template v-slot:cell(actions)="data">
-                    <span class="fa fa-edit pointer"></span>
-                    <span class="fa fa-trash pointer" @click="deleteProduct(data.item.id)"></span>
+                    <span class="fa fa-trash pointer" @click="deleteConfirm(data.item.id)"></span>
                   </template>
                 </b-table>
               </b-col>
@@ -127,10 +138,12 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "manage-products",
-layout: "panel",
-head: {
+  name: "user-products",
+  layout: "panel",
+  head: {
     title: "لیست سفارشات"
   },
   data() {
@@ -160,14 +173,14 @@ head: {
           tdClass: "text-center"
         },
         {
-          label: "سفارش ",
-          key: "order",
+          label: "محصول",
+          key: "product",
           sortable: true,
           tdClass: "text-left"
         },
         {
-          label: "تعداد",
-          key: "qty",
+          label: "کاربر",
+          key: "user",
           sortable: true,
           tdClass: "text-left"
         },
@@ -178,14 +191,14 @@ head: {
           tdClass: "text-left"
         },
         {
-          label: "کد پیگیری",
-          key: "code",
+          label: "وضعیت ",
+          key: "status",
           sortable: true,
           tdClass: "text-left"
         },
         {
           label: "تاریخ",
-          key: "date",
+          key: "createdAt",
           sortable: true,
           tdClass: "text-left"
         },
@@ -196,51 +209,14 @@ head: {
           tdClass: "text-center"
         }
       ],
-      items: [
-        {
-          id: 1,
-          order: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          code:"4565",
-          date: "1399/12/2"
-        },
-        {
-          id: 2,
-          order: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          code:"4565",
-          date: "1399/12/2"
-        },
-        {
-          id: 3,
-          order: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          code:"4565",
-          date: "1399/12/2"
-        },
-        {
-          id: 4,
-          order: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          code:"4565",
-          date: "1399/12/2"
-        },
-        {
-          id: 5,
-          order: "گوجه سبز",
-          qty: "2",
-          price: "2433444",
-          code:"4565",
-          date: "1399/12/2"
-        },
-      ]
+      items: []
     };
   },
   computed: {
+    ...mapGetters({
+      count: "cart/getCount",
+      cart: "cart/getCart"
+    }),
     sortOptions() {
       // Create an options list from our fields
       return this.fields
@@ -252,45 +228,53 @@ head: {
   },
   mounted() {
     this.totalRows = this.items.length;
+    this.gteProducts();
   },
   methods: {
-    deleteProduct(id) {
-      alert(id);
-    },
     onFiltered(filteredItems) {
       // Trigger pagination to update the id of buttons/pages due to filtering
       this.totalRows = filteredItems.length;
       this.currentPage = 1;
     },
-    addEmial() {
-      console.log(this.email);
-    },
-    checkFormValidity() {
-      const valid = this.$refs.form.checkValidity();
-      this.nameState = valid ? "valid" : "invalid";
-      return valid;
-    },
-    resetModal() {
-      this.name = "";
-      this.nameState = null;
-    },
-    handleOk(bvModalEvt) {
-      // Prevent modal from closing
-      bvModalEvt.preventDefault();
-      // Trigger submit handler
-      this.handleSubmit();
-    },
-    handleSubmit() {
-      // Exit when the form isn't valid
-      if (!this.checkFormValidity()) {
-        return;
+    deleteConfirm(id) {
+      let r = confirm("آیا می خواهید حذف کنید؟");
+      if (r == true) {
+        this.destroy(id);
+      } else {
       }
-      // Push the name to submitted names
-      this.submittedNames.push(this.name);
-      // Hide the modal manually
-      this.$nextTick(() => {
-        this.$refs.modal.hide();
-      });
+    },
+    async destroy(id) {
+      try {
+        let res = await this.$axios.$delete("/products/deleteFromOrder/"+ id);
+        if (res.success) {
+          this.gteProducts();
+          this.$toast.success("hazf shod", {
+            theme: "bubble",
+            duration: 5000
+          });
+        } else{
+          this.$toast.error(res.message, {
+            theme: "bubble",
+            duration: 5000
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async gteProducts() {
+      try {
+        let res = await this.$axios.$get("/products/ordersProduct");
+        if (res.success) {
+          this.items = res.data;
+          this.totalRows = this.items.length;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    deleteProduct(id) {
+      alert(id);
     }
   }
 };

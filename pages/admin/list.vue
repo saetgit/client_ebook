@@ -82,8 +82,7 @@
                 >
                   <template v-slot:cell(num)="data">{{ data.index + 1 }}</template>
                   <template v-slot:cell(actions)="data">
-                    <span class="fa fa-edit pointer m-l-1">
-                    </span>
+                    
                     <span class="fa fa-trash pointer" @click="deleteProduct(data.item.id)"></span>
                   </template>
                   <template v-slot:cell(fullname)="data">

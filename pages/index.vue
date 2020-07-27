@@ -83,27 +83,7 @@
                   <p>با توجه به اینکه کتاب‌ها در دسته‌بندی‌های مختلف قرار داده شده‌اند میتوانید در زیر آنها را با توجه به دسته‌بندی‌ مربوطه فیلتر کنید</p>
                 </header>
                 <div class="widget-content">
-                  <header class="masonry-header">
-                    <div class="masonry-filter style-01">
-                      <nuxt-link to="books/" data-val="*" class="style-01 active">
-                        <span></span>همه
-                      </nuxt-link>
-                      <nuxt-link to="books/" data-val="1" class="style-02">
-                        <span></span>مجله‌ها
-                      </nuxt-link>
-                      <nuxt-link to="books/" data-val="2" class="style-03">
-                        <span></span>طنز‌ها
-                      </nuxt-link>
-                      <nuxt-link to="books/" data-val="3" class="style-04">
-                        <span></span>کتاب‌ها
-                      </nuxt-link>
-                      <nuxt-link to="books/" data-val="4" class="style-05">
-                        <span></span>مقاله‌ها
-                      </nuxt-link>
-                    </div>
-                    <!-- masonry-filter -->
-                    <nuxt-link to="books/" class="kopa-btn-5">نمایش همه</nuxt-link>
-                  </header>
+                  
 
                   <div class="masonry-container row" v-if="books.length">
                     <BookItem v-for="item in books" :key="item.id" :book="item" />

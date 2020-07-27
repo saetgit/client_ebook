@@ -38,8 +38,8 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="woocommerce-main-primary">
               <div class="woocommerce-main-content">
-                <div class="masonry-container row">
-                  <!-- <BookItem v-for="item in books" :key="item.id" :book="item"/> -->
+                <div class="masonry-container row" v-if="books.length">
+                    <BookItem v-for="item in books" :key="item.id" :book="item" />
                 </div>
               </div>
               <!-- woocommerce-main-content -->
@@ -57,19 +57,48 @@
   <!-- main-content -->
 </template>
 <script>
-// import BookItem from "../../components/Books/BookItem";
+import BookItem from '../../components/Books/BookItem';
 export default {
-  name: "Books",
+  name: "product",
   head: {
-    title: " نمایش همه  "
+    title: "محصولات "
   },
+
   components: {
-    // BookItem
+    BookItem
   },
   data() {
     return {
-      books: []
+      books:[],
+      btn_loading: false,
+      permissionItems: [],
+      url: null,
+      photo: "",
+      photoName: "",
+      Title: null,
+      description: null,
+      auther: null,
+      discount: null,
+      rate: null,
+      price: null,
+      colorClass: null
     };
+  },
+
+  mounted() {
+    this.gteProducts();
+  },
+  methods: {
+    async gteProducts() {
+      try {
+        let res = await this.$axios.$get("/products");
+        if (res.success) {
+          this.books = res.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 };
 </script>

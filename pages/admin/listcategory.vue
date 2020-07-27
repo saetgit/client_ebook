@@ -85,27 +85,27 @@
                     <span>{{data.item.category}}</span>
                   </template>
                   <template v-slot:cell(actions)="data">
-                    <span class="fa fa-edit pointer m-l-1">
-                    </span>
-                    <span class="fa fa-trash pointer" @click="deleteProduct(data.item.id)"></span>
+                    <span class="fa fa-trash pointer" @click="deleteConfirm(data.item.id)"></span>
                   </template>
-
                 </b-table>
               </b-col>
             </b-row>
             <b-row>
-              <b-col sm="5" md="6" class="my-1">
+              <b-col sm="4" md="4" class="my-1">
                 <b-form-group
                   label="رکوردهای هر صفحه"
                   label-cols-sm="6"
-                  label-cols-md="4"
-                  label-cols-lg="3"
+                  label-cols-md="6"
+                  label-cols-lg="6"
                   label-align-sm="right"
                   label-size="sm"
                   label-for="perPageSelect"
                   class="mb-0"
                 >
                   <b-form-select
+                    label-cols-sm="4"
+                    label-cols-md="4"
+                    label-cols-lg="4"
                     v-model="perPage"
                     id="perPageSelect"
                     size="sm"
@@ -113,12 +113,12 @@
                   ></b-form-select>
                 </b-form-group>
               </b-col>
-              <b-col sm="7" md="6" class="my-1">
+              <b-col sm="8" md="8" class="my-1">
                 <b-pagination
                   v-model="currentPage"
                   :total-rows="totalRows"
                   :per-page="perPage"
-                  align="fill"
+                  align="center"
                   size="sm"
                   class="my-0"
                 ></b-pagination>
@@ -132,12 +132,10 @@
 </template>
 
 <script>
-
 export default {
   name: "manage-products",
   layout: "admin",
-  components: {
-  },
+  components: {},
   head: {
     title: "لیست کاربران"
   },
@@ -199,6 +197,27 @@ export default {
     this.totalRows = this.items.length;
   },
   methods: {
+    deleteConfirm(id) {
+      let r = confirm("آیا می خواهید حذف کنید؟");
+      if (r == true) {
+        this.destroy(id);
+      } else {
+      }
+    },
+    async destroy(id) {
+      try {
+        let res = await this.$axios.$delete("/categories/" + id);
+        if (res.success) {
+          this.gteProducts();
+          this.$toast.success(" حذف شد!", {
+            theme: "bubble",
+            duration: 5000
+          });
+        } 
+      } catch (error) {
+        console.log(error);
+      }
+    },
     async category() {
       try {
         let res = await this.$axios.$get("/categories");

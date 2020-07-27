@@ -3,12 +3,12 @@
     <article :class="'entry-item ct-item-1 '">
       <div class="entry-thumb">
         <nuxt-link :to="'/books/'+book.id">
-          <img :src="img_url +book.img" :alt="book.title" />
+          <img style="height:400px" :src="img_url +book.img" :alt="book.title" />
         </nuxt-link>
         <div class="entry-content">
           <header>
             <h4 class="entry-title">
-              <nuxt-link :to="'/books/'+book.id" class="title-book">{{book.title}}</nuxt-link>
+              <nuxt-link :to="'/books/'+book.id" class="title-book">{{book.Title}}</nuxt-link>
             </h4>
             <div class="kopa-rating">
               <ul>
@@ -25,7 +25,7 @@
           <p>{{book.description}}</p>
           <p class="ct-space-1"></p>
           <div class="ct-icon-1">
-            <p>{{book.discount}}</p>
+            <p>{{book.discount}}%</p>
           </div>
         </div>
       </div>
@@ -48,22 +48,14 @@
         </div>
         <div class="ft-wrap style-02">
           <ul>
+           
             <li>
-              <div class="add-to-wishlist">
-                <div>
-                  <nuxt-link to="/" class="add_to_wishlist">
-                    <i class="ti-heart"></i>
-                  </nuxt-link>
-                </div>
-              </div>
-            </li>
-            <li>
-              <nuxt-link to="/cart">
+              <a @click="addToCart(book.id)">
                 <i class="ti-shopping-cart"></i>
-              </nuxt-link>
+              </a>
             </li>
             <li>
-              <nuxt-link to="/books/detail">
+              <nuxt-link :to="'/books/'+book.id">
                 <i class="ti-new-window"></i>
               </nuxt-link>
             </li>
@@ -78,10 +70,10 @@
 <script>
 export default {
   name: "book-component",
-  data(){
-    return{
-      img_url : 'http://localhost:5005/uploads/'
-    }
+  data() {
+    return {
+      img_url: "http://localhost:5005/uploads/"
+    };
   },
   props: {
     book: {
@@ -89,10 +81,33 @@ export default {
       default: () => {}
     }
   },
-   mounted() {
-    
-  },
+  mounted() {},
   methods: {
+    async getCart() {
+      try {
+        let res = await this.$axios.$get("/products/myCart");
+        if (res.success) {
+          this.$store.dispatch("cart/setCart", res.data);
+           this.$store.dispatch("cart/setCount", res.data.length);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async addToCart(id) {
+      try {
+        let res = await this.$axios.post("/products/cart", {
+          product_id: id
+        });
+        if (res.data.success) {
+          this.$toast.success("added to cart", {
+            theme: "bubble",
+            duration: 5000
+          });
+          this.getCart();
+        }
+      } catch (error) {}
+    }
   }
 };
 </script>

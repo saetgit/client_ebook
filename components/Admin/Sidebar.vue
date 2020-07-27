@@ -4,7 +4,7 @@
       <!--left col-->
 
       <div class="text-center">
-        <b-img
+        <b-img style="width:100px;height:100px"
           :src="$auth.user.avatar"
           class="avatar img-circle img-thumbnail"
           alt="avatar"

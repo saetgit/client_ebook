@@ -3,8 +3,8 @@
     <b-col sm="12" md="12">
       <b-card no-body class="card-default">
         <div slot="header">
-          <i class="fa fa-user-plus"></i>
-          <span>ویرایش اطلاعات کاربری</span>
+          <i class="fa fa-user"></i>
+          <span>ویرایش اطلاعات</span>
         </div>
         <b-card-body>
           <b-form @submit.stop.prevent="onSubmit">
@@ -66,24 +66,6 @@
                   <b-form-invalid-feedback id="family-feedback">این فیلد اجباری است</b-form-invalid-feedback>
                 </b-form-group>
               </b-col>
-              <!-- <b-col sm="6">
-                <b-form-group
-                  :label-cols="4"
-                  :horizontal="true"
-                  label="رمز عبور"
-                  label-for="password"
-                >
-                  <b-form-input
-                    id="password"
-                    v-model="form.password"
-                    :state="validateState('password')"
-                    aria-describedby="password-feedback"
-                    type="password"
-                    :disabled="false"
-                  ></b-form-input>
-                  <b-form-invalid-feedback id="password-feedback">این فیلد اجباری است</b-form-invalid-feedback>
-                </b-form-group>
-              </b-col>-->
               <b-col sm="6">
                 <b-form-group :label-cols="4" :horizontal="true" label="موبایل" label-for="mobile">
                   <b-form-input
@@ -160,7 +142,11 @@
                   variant="primary"
                   :disabled="btn_loading"
                 >
-                  <btn-loading :loading="btn_loading" loadingText="لطفا صبر کنید" buttonText="ثبت" />
+                  <btn-loading
+                    :loading="btn_loading"
+                    loadingText="لطفا صبر کنید"
+                    buttonText="بروزرسانی"
+                  />
                 </b-button>
               </b-col>
             </b-row>
@@ -181,11 +167,10 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
-  middleware: "auth",
-  name: "add-new-user",
+  name: "panel",
   layout: "panel",
   head: {
-    title: "اطلاعات شخصی"
+    title: "پنل ادمین|افزودن کاربر"
   },
   data() {
     return {
@@ -214,7 +199,6 @@ export default {
       email: { required, email },
       name: { required },
       family: { required },
-      password: { required },
       mobile: {},
       phone: {},
       website: {},
@@ -234,55 +218,6 @@ export default {
     this.form.address = this.$auth.user.address;
   },
   methods: {
-    // selectImage() {
-    //   this.photo = this.$refs.image.click();
-    // },
-    // imageSelected(e) {
-    //   this.$emit("input", e.target.files[0]);
-    //   this.photo = this.$refs.image.files[0];
-    //   this.photoName = this.photo.name;
-    //   this.uploadPhoto();
-    // },
-    // async uploadPhoto() {
-    //   this.btn_loading = true;
-    //   try {
-    //     let formData = new FormData();
-    //     formData.append("avatar", this.photo);
-    //     let config = {
-    //       headers: {
-    //         "content-type": "multipart/form-data"
-    //       }
-    //     };
-
-    //     let res = await this.$axios.$post("/users/avatar", formData, config);
-
-    //     if (res.success) {
-    //       this.btn_loading = false;
-    //       this.$auth.fetchUser();
-    //       this.$toast.success(this.$t("profile_picture_updated"), {
-    //         theme: "bubble",
-    //         duration: 10000
-    //       });
-    //     }
-    //   } catch (error) {
-    //     if (error.response.status === 500) {
-    //       if (
-    //         error.response.data.error === "Only .jpeg or png files are accepted"
-    //       ) {
-    //         this.$toast.error(this.$t("only_jpeg_or_png_files_are_accepted"), {
-    //           theme: "bubble",
-    //           duration: 5000
-    //         });
-    //       } else if (error.response.data.error.message === "File too large") {
-    //         this.$toast.error(this.$t("max_1MB_upload"), {
-    //           theme: "bubble",
-    //           duration: 5000
-    //         });
-    //       }
-    //     }
-    //     this.btn_loading = false;
-    //   }
-    // },
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
@@ -297,39 +232,66 @@ export default {
       if (this.$v.form.$anyError) {
         return;
       }
+      console.log("==============================>");
 
       this.updateUser();
     },
-    // async updateUser() {
-    //   let finalForm = {
-    //     name: this.form.name,
-    //     family: this.form.family,
-    //     mobile: this.form.mobile,
-    //     phone: this.form.phone,
-    //     website: this.form.website,
-    //     address: this.form.address,
-    //     about: this.form.about
-    //   };
+    async updateUser() {
+      let finalForm = {
+        name: this.form.name,
+        family: this.form.family,
+        mobile: this.form.mobile,
+        phone: this.form.phone,
+        website: this.form.website,
+        address: this.form.address
+      };
 
-    //   this.btn_loading2 = true;
-    //   try {
-    //     let res = await this.$axios.$post("/users/update", finalForm);
+      this.btn_loading2 = true;
+      try {
+        let res = await this.$axios.$post("/users/update", finalForm);
 
-    //     if (res.success) {
-    //       this.btn_loading2 = false;
-    //       this.resetForm();
-    //       this.$auth.fetchUser();
-    //       this.$toast.success("ثبت نام شما با موفقیت انجام شد.", {
-    //         theme: "bubble",
-    //         duration: 5000
-    //       });
-    //     }
-    //   } catch (error) {
-    //     this.$toast.success("ثبت نام شما با موفقیت انجام شد.", {
-    //         theme: "bubble",
-    //         duration: 5000
-    //   }
-    // }
+        if (res.success) {
+          this.btn_loading2 = false;
+          this.resetForm();
+          this.$auth.fetchUser();
+          this.$toast.success("اطلاعات شما با موفقیت بروزرسانی شد", {
+            theme: "bubble",
+            duration: 5000
+          });
+        }
+      } catch (error) {}
+    },
+
+    async logout() {
+      try {
+        this.$auth.logout();
+        this.removeOffModalTimeRecord();
+      } catch (e) {
+        this.formError = e.message;
+      }
+    },
+    logoutConfirm() {
+      this.$bvModal
+        .msgBoxConfirm(this.$t("sure_exit_from_kartable"), {
+          title: this.$t("exit_kartable"),
+          size: "sm",
+          buttonSize: "sm",
+          okVariant: "danger",
+          okTitle: this.$t("yes_exit"),
+          cancelTitle: this.$t("no"),
+          footerClass: "p-2",
+          hideHeaderClose: false,
+          centered: true
+        })
+        .then(value => {
+          if (value) {
+            this.logout();
+          }
+        })
+        .catch(err => {
+          // An error occurred
+        });
+    }
   }
 };
 </script>
